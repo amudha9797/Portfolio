@@ -3,447 +3,2422 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Amudha S — ECE Portfolio</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link
+  href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+>
+
 <style>
-  :root{
-    --pcb: #0F3D2E;
-    --pcb-deep: #0A2C21;
-    --paper: #EDE8D8;
-    --paper-card: #F7F4EA;
-    --copper: #B5651D;
-    --copper-light: #D0863F;
-    --gold: #C9A227;
-    --ink: #16241E;
-    --ink-soft: #45564C;
-    --line: rgba(15,61,46,0.18);
-    --max: 880px;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'IBM Plex Sans', sans-serif;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto;}
-    *{animation:none !important; transition:none !important;}
-  }
-  a{color:inherit; text-decoration:none;}
-  .mono{font-family:'IBM Plex Mono', monospace;}
-  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
 
-  /* NAV */
-  header.nav{
-    position:sticky; top:0; z-index:50;
-    background:rgba(237,232,216,0.92);
-    backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--line);
-  }
-  .navrow{
-    display:flex; align-items:center; justify-content:space-between;
-    max-width:var(--max); margin:0 auto; padding:16px 28px;
-  }
-  .brand{font-family:'IBM Plex Mono'; font-weight:600; font-size:0.95rem; letter-spacing:0.02em; display:flex; align-items:center; gap:8px;}
-  .brand .pad{width:8px; height:8px; border-radius:50%; background:var(--gold); box-shadow:0 0 0 3px rgba(201,162,39,0.18);}
-  nav.links{display:flex; gap:22px; font-family:'IBM Plex Mono'; font-size:0.82rem;}
-  nav.links a{color:var(--ink-soft); position:relative; padding-bottom:2px;}
-  nav.links a:hover{color:var(--pcb);}
-  nav.links a::after{content:''; position:absolute; left:0; bottom:-3px; width:0; height:1.5px; background:var(--copper); transition:width .2s ease;}
-  nav.links a:hover::after{width:100%;}
-  .navtoggle{display:none;}
-  @media (max-width:680px){
-    nav.links{display:none;}
+/* =========================
+   ROOT
+========================= */
+
+:root{
+  --pcb:#0F3D2E;
+  --pcb-deep:#0A2C21;
+  --paper:#EDE8D8;
+  --paper-card:#F7F4EA;
+  --copper:#B5651D;
+  --copper-light:#D0863F;
+  --gold:#C9A227;
+  --ink:#16241E;
+  --ink-soft:#45564C;
+  --line:rgba(15,61,46,0.18);
+  --max:880px;
+}
+
+
+/* =========================
+   RESET
+========================= */
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'IBM Plex Sans',sans-serif;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+@media (prefers-reduced-motion:reduce){
+
+  html{
+    scroll-behavior:auto;
   }
 
-  /* HERO */
-  .hero{
-    background:var(--pcb);
-    color:var(--paper-card);
-    position:relative;
-    overflow:hidden;
-    padding:76px 0 96px;
+  *{
+    animation:none !important;
+    transition:none !important;
   }
-  .hero .wrap{position:relative; z-index:2;}
-  .hero-eyebrow{
-    font-family:'IBM Plex Mono'; font-size:0.78rem; color:var(--gold);
-    letter-spacing:0.04em; margin-bottom:18px; display:flex; align-items:center; gap:10px;
-  }
-  .hero-eyebrow .chip{
-    border:1px solid rgba(201,162,39,0.5); padding:3px 9px; border-radius:3px; font-size:0.72rem;
-  }
-  h1.name{
-    font-family:'IBM Plex Mono'; font-weight:700;
-    font-size:clamp(2.4rem, 7vw, 4rem);
-    line-height:1.05; letter-spacing:-0.01em;
-    margin-bottom:14px;
-  }
-  .hero-role{
-    font-size:1.15rem; color:rgba(247,244,234,0.82); margin-bottom:22px; max-width:520px;
-  }
-  .hero-desc{
-    font-size:1rem; color:rgba(247,244,234,0.68); max-width:540px; margin-bottom:34px;
-  }
-  .hero-cta{display:flex; gap:14px; flex-wrap:wrap;}
-  .btn{
-    font-family:'IBM Plex Mono'; font-size:0.85rem; padding:11px 20px;
-    border-radius:2px; display:inline-flex; align-items:center; gap:8px;
-    transition:transform .15s ease, background .15s ease;
-  }
-  .btn-primary{background:var(--copper); color:#fff;}
-  .btn-primary:hover{background:var(--copper-light); transform:translateY(-1px);}
-  .btn-ghost{border:1px solid rgba(247,244,234,0.35); color:var(--paper-card);}
-  .btn-ghost:hover{border-color:var(--gold); color:var(--gold);}
+}
 
-  /* trace decoration */
-  .traces{position:absolute; inset:0; z-index:1; opacity:0.55;}
+a{
+  color:inherit;
+  text-decoration:none;
+}
 
-  /* SECTION shared */
-  section{padding:64px 0;}
-  section.alt{background:var(--paper-card); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
-  .sec-head{margin-bottom:36px;}
-  .sec-tag{font-family:'IBM Plex Mono'; font-size:0.76rem; color:var(--copper); margin-bottom:8px;}
-  h2{
-    font-family:'IBM Plex Mono'; font-weight:600; font-size:1.65rem; color:var(--pcb-deep);
-  }
-  p.lede{max-width:640px; color:var(--ink-soft); margin-top:14px; font-size:1.02rem;}
+.mono{
+  font-family:'IBM Plex Mono',monospace;
+}
 
-  /* IC-chip card styling */
-  .chip-card{
-    background:#fff; border:1.5px solid var(--pcb); border-radius:6px;
-    padding:26px 26px 22px; position:relative; margin-bottom:22px;
-  }
-  .chip-card::before, .chip-card::after{
-    content:''; position:absolute; top:22px; width:14px; height:3px; background:var(--pcb);
-  }
-  .chip-card::before{left:-14px;}
-  .chip-card::after{right:-14px;}
+.wrap{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:0 28px;
+}
 
-  /* ABOUT */
-  .about-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:26px; align-items:start;}
-  @media (max-width:700px){.about-grid{grid-template-columns:1fr;}}
-  .fact{
-    display:flex; justify-content:space-between; font-family:'IBM Plex Mono';
-    font-size:0.85rem; padding:10px 0; border-bottom:1px dashed var(--line);
-  }
-  .fact span:first-child{color:var(--ink-soft);}
-  .fact span:last-child{color:var(--pcb-deep); font-weight:600;}
 
-  /* EDUCATION timeline */
-  .tl{position:relative; padding-left:26px; border-left:2px solid var(--copper);}
-  .tl-item{position:relative; padding-bottom:30px;}
-  .tl-item:last-child{padding-bottom:0;}
-  .tl-item::before{
-    content:''; position:absolute; left:-32px; top:4px; width:11px; height:11px; border-radius:50%;
-    background:var(--gold); border:2px solid var(--pcb-deep);
-  }
-  .tl-title{font-family:'IBM Plex Mono'; font-weight:600; font-size:1rem; color:var(--pcb-deep);}
-  .tl-meta{font-size:0.85rem; color:var(--copper); margin:4px 0 6px; font-family:'IBM Plex Mono';}
-  .tl-body{color:var(--ink-soft); font-size:0.95rem;}
+/* =========================
+   NAVIGATION
+========================= */
 
-  /* SKILLS */
-  .skill-grid{display:grid; grid-template-columns:repeat(2, 1fr); gap:18px;}
-  @media (max-width:700px){.skill-grid{grid-template-columns:1fr;}}
-  .skill-card{background:#fff; border:1px solid var(--line); border-radius:6px; padding:20px 22px;}
-  .skill-card h3{font-family:'IBM Plex Mono'; font-size:0.92rem; color:var(--pcb); margin-bottom:12px; display:flex; align-items:center; gap:8px;}
-  .skill-card h3::before{content:''; width:6px; height:6px; background:var(--copper); border-radius:1px; display:inline-block;}
-  .tags{display:flex; flex-wrap:wrap; gap:8px;}
-  .tag{
-    font-family:'IBM Plex Mono'; font-size:0.76rem; background:var(--paper);
-    border:1px solid var(--line); padding:5px 10px; border-radius:3px; color:var(--ink);
+header.nav{
+  position:sticky;
+  top:0;
+  z-index:50;
+
+  background:rgba(237,232,216,0.92);
+
+  backdrop-filter:blur(6px);
+
+  border-bottom:1px solid var(--line);
+}
+
+.navrow{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  max-width:var(--max);
+
+  margin:0 auto;
+
+  padding:16px 28px;
+}
+
+.brand{
+  font-family:'IBM Plex Mono';
+
+  font-weight:600;
+
+  font-size:0.95rem;
+
+  letter-spacing:0.02em;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:8px;
+}
+
+.brand .pad{
+  width:8px;
+  height:8px;
+
+  border-radius:50%;
+
+  background:var(--gold);
+
+  box-shadow:
+    0 0 0 3px rgba(201,162,39,0.18);
+}
+
+nav.links{
+  display:flex;
+
+  gap:22px;
+
+  font-family:'IBM Plex Mono';
+
+  font-size:0.82rem;
+}
+
+nav.links a{
+  color:var(--ink-soft);
+
+  position:relative;
+
+  padding-bottom:2px;
+}
+
+nav.links a:hover{
+  color:var(--pcb);
+}
+
+nav.links a::after{
+  content:'';
+
+  position:absolute;
+
+  left:0;
+
+  bottom:-3px;
+
+  width:0;
+
+  height:1.5px;
+
+  background:var(--copper);
+
+  transition:width .2s ease;
+}
+
+nav.links a:hover::after{
+  width:100%;
+}
+
+@media (max-width:680px){
+
+  nav.links{
+    display:none;
+  }
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  background:var(--pcb);
+
+  color:var(--paper-card);
+
+  position:relative;
+
+  overflow:hidden;
+
+  padding:76px 0 96px;
+}
+
+.hero .wrap{
+  position:relative;
+  z-index:2;
+}
+
+.hero-eyebrow{
+  font-family:'IBM Plex Mono';
+
+  font-size:0.78rem;
+
+  color:var(--gold);
+
+  letter-spacing:0.04em;
+
+  margin-bottom:18px;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+}
+
+.hero-eyebrow .chip{
+  border:1px solid rgba(201,162,39,0.5);
+
+  padding:3px 9px;
+
+  border-radius:3px;
+
+  font-size:0.72rem;
+}
+
+h1.name{
+  font-family:'IBM Plex Mono';
+
+  font-weight:700;
+
+  font-size:clamp(2.4rem,7vw,4rem);
+
+  line-height:1.05;
+
+  letter-spacing:-0.01em;
+
+  margin-bottom:14px;
+}
+
+.hero-role{
+  font-size:1.15rem;
+
+  color:rgba(247,244,234,0.82);
+
+  margin-bottom:22px;
+
+  max-width:520px;
+}
+
+.hero-desc{
+  font-size:1rem;
+
+  color:rgba(247,244,234,0.68);
+
+  max-width:540px;
+
+  margin-bottom:34px;
+}
+
+.hero-cta{
+  display:flex;
+
+  gap:14px;
+
+  flex-wrap:wrap;
+}
+
+.btn{
+  font-family:'IBM Plex Mono';
+
+  font-size:0.85rem;
+
+  padding:11px 20px;
+
+  border-radius:2px;
+
+  display:inline-flex;
+
+  align-items:center;
+
+  gap:8px;
+
+  transition:
+    transform .15s ease,
+    background .15s ease;
+}
+
+.btn-primary{
+  background:var(--copper);
+
+  color:#fff;
+}
+
+.btn-primary:hover{
+  background:var(--copper-light);
+
+  transform:translateY(-1px);
+}
+
+.btn-ghost{
+  border:1px solid rgba(247,244,234,0.35);
+
+  color:var(--paper-card);
+}
+
+.btn-ghost:hover{
+  border-color:var(--gold);
+
+  color:var(--gold);
+}
+
+.traces{
+  position:absolute;
+
+  inset:0;
+
+  z-index:1;
+
+  opacity:0.55;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+section{
+  padding:64px 0;
+}
+
+section.alt{
+  background:var(--paper-card);
+
+  border-top:1px solid var(--line);
+
+  border-bottom:1px solid var(--line);
+}
+
+.sec-head{
+  margin-bottom:36px;
+}
+
+.sec-tag{
+  font-family:'IBM Plex Mono';
+
+  font-size:0.76rem;
+
+  color:var(--copper);
+
+  margin-bottom:8px;
+}
+
+h2{
+  font-family:'IBM Plex Mono';
+
+  font-weight:600;
+
+  font-size:1.65rem;
+
+  color:var(--pcb-deep);
+}
+
+p.lede{
+  max-width:640px;
+
+  color:var(--ink-soft);
+
+  margin-top:14px;
+
+  font-size:1.02rem;
+}
+
+
+/* =========================
+   CHIP CARD
+========================= */
+
+.chip-card{
+  background:#fff;
+
+  border:1.5px solid var(--pcb);
+
+  border-radius:6px;
+
+  padding:26px 26px 22px;
+
+  position:relative;
+
+  margin-bottom:22px;
+}
+
+.chip-card::before,
+.chip-card::after{
+  content:'';
+
+  position:absolute;
+
+  top:22px;
+
+  width:14px;
+
+  height:3px;
+
+  background:var(--pcb);
+}
+
+.chip-card::before{
+  left:-14px;
+}
+
+.chip-card::after{
+  right:-14px;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-grid{
+  display:grid;
+
+  grid-template-columns:1.3fr 1fr;
+
+  gap:26px;
+
+  align-items:start;
+}
+
+@media (max-width:700px){
+
+  .about-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+.fact{
+  display:flex;
+
+  justify-content:space-between;
+
+  font-family:'IBM Plex Mono';
+
+  font-size:0.85rem;
+
+  padding:10px 0;
+
+  border-bottom:1px dashed var(--line);
+}
+
+.fact span:first-child{
+  color:var(--ink-soft);
+}
+
+.fact span:last-child{
+  color:var(--pcb-deep);
+
+  font-weight:600;
+}
+
+
+/* =========================
+   TIMELINE
+========================= */
+
+.tl{
+  position:relative;
+
+  padding-left:26px;
+
+  border-left:2px solid var(--copper);
+}
+
+.tl-item{
+  position:relative;
+
+  padding-bottom:30px;
+}
+
+.tl-item:last-child{
+  padding-bottom:0;
+}
+
+.tl-item::before{
+  content:'';
+
+  position:absolute;
+
+  left:-32px;
+
+  top:4px;
+
+  width:11px;
+
+  height:11px;
+
+  border-radius:50%;
+
+  background:var(--gold);
+
+  border:2px solid var(--pcb-deep);
+}
+
+.tl-title{
+  font-family:'IBM Plex Mono';
+
+  font-weight:600;
+
+  font-size:1rem;
+
+  color:var(--pcb-deep);
+}
+
+.tl-meta{
+  font-size:0.85rem;
+
+  color:var(--copper);
+
+  margin:4px 0 6px;
+
+  font-family:'IBM Plex Mono';
+}
+
+.tl-body{
+  color:var(--ink-soft);
+
+  font-size:0.95rem;
+}
+
+
+/* =========================
+   SKILLS
+========================= */
+
+.skill-grid{
+  display:grid;
+
+  grid-template-columns:repeat(2,1fr);
+
+  gap:18px;
+}
+
+@media (max-width:700px){
+
+  .skill-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+.skill-card{
+  background:#fff;
+
+  border:1px solid var(--line);
+
+  border-radius:6px;
+
+  padding:20px 22px;
+}
+
+.skill-card h3{
+  font-family:'IBM Plex Mono';
+
+  font-size:0.92rem;
+
+  color:var(--pcb);
+
+  margin-bottom:12px;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:8px;
+}
+
+.skill-card h3::before{
+  content:'';
+
+  width:6px;
+
+  height:6px;
+
+  background:var(--copper);
+
+  border-radius:1px;
+
+  display:inline-block;
+}
+
+.tags{
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:8px;
+}
+
+.tag{
+  font-family:'IBM Plex Mono';
+
+  font-size:0.76rem;
+
+  background:var(--paper);
+
+  border:1px solid var(--line);
+
+  padding:5px 10px;
+
+  border-radius:3px;
+
+  color:var(--ink);
+}
+
+
+/* =========================
+   PROJECTS
+========================= */
+
+.project{
+  margin-bottom:26px;
+}
+
+.project-head{
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:baseline;
+
+  flex-wrap:wrap;
+
+  gap:10px;
+
+  margin-bottom:10px;
+}
+
+.project-title{
+  font-family:'IBM Plex Mono';
+
+  font-weight:600;
+
+  font-size:1.12rem;
+
+  color:var(--pcb-deep);
+}
+
+.project-index{
+  font-family:'IBM Plex Mono';
+
+  font-size:0.78rem;
+
+  color:var(--gold);
+
+  border:1px solid var(--gold);
+
+  padding:3px 9px;
+
+  border-radius:3px;
+}
+
+.project-desc{
+  color:var(--ink-soft);
+
+  margin-bottom:14px;
+
+  font-size:0.98rem;
+}
+
+
+/* =========================
+   CERTIFICATE CARDS
+========================= */
+
+.cert-grid{
+  display:grid;
+
+  grid-template-columns:repeat(2,1fr);
+
+  gap:22px;
+}
+
+.cert-card{
+  background:#fff;
+
+  border:1px solid var(--line);
+
+  border-radius:8px;
+
+  overflow:hidden;
+
+  cursor:pointer;
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease;
+}
+
+.cert-card:hover{
+  transform:translateY(-4px);
+
+  box-shadow:
+    0 10px 25px rgba(15,61,46,0.12);
+}
+
+.cert-image{
+  width:100%;
+
+  height:210px;
+
+  object-fit:cover;
+
+  display:block;
+
+  border-bottom:1px solid var(--line);
+}
+
+.cert-info{
+  padding:18px;
+}
+
+.cert-title{
+  font-family:'IBM Plex Mono';
+
+  font-weight:600;
+
+  color:var(--pcb-deep);
+
+  font-size:0.95rem;
+
+  margin-bottom:7px;
+}
+
+.cert-issuer{
+  color:var(--copper);
+
+  font-size:0.85rem;
+
+  margin-bottom:6px;
+}
+
+.cert-detail{
+  color:var(--ink-soft);
+
+  font-size:0.8rem;
+
+  margin-bottom:12px;
+}
+
+.cert-view{
+  font-family:'IBM Plex Mono';
+
+  font-size:0.75rem;
+
+  color:var(--copper);
+}
+
+.cert-card:hover .cert-view{
+  text-decoration:underline;
+}
+
+
+/* =========================
+   CERTIFICATE MODAL
+========================= */
+
+.cert-modal{
+  display:none;
+
+  position:fixed;
+
+  z-index:100;
+
+  inset:0;
+
+  background:rgba(0,0,0,0.88);
+
+  padding:30px;
+
+  align-items:center;
+
+  justify-content:center;
+}
+
+.cert-modal.active{
+  display:flex;
+}
+
+.cert-modal-content{
+  position:relative;
+
+  max-width:1100px;
+
+  max-height:92vh;
+
+  width:100%;
+
+  text-align:center;
+}
+
+.cert-modal-image{
+  max-width:100%;
+
+  max-height:88vh;
+
+  object-fit:contain;
+
+  border-radius:5px;
+
+  background:white;
+
+  box-shadow:
+    0 10px 40px rgba(0,0,0,0.4);
+}
+
+.cert-close{
+  position:absolute;
+
+  top:-42px;
+
+  right:0;
+
+  color:white;
+
+  font-size:34px;
+
+  line-height:1;
+
+  cursor:pointer;
+
+  font-family:Arial,sans-serif;
+
+  transition:color .2s ease;
+}
+
+.cert-close:hover{
+  color:var(--gold);
+}
+
+@media (max-width:700px){
+
+  .cert-grid{
+    grid-template-columns:1fr;
   }
 
-  /* PROJECTS */
-  .project{margin-bottom:26px;}
-  .project-head{display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:10px; margin-bottom:10px;}
-  .project-title{font-family:'IBM Plex Mono'; font-weight:600; font-size:1.12rem; color:var(--pcb-deep);}
-  .project-index{font-family:'IBM Plex Mono'; font-size:0.78rem; color:var(--gold); border:1px solid var(--gold); padding:3px 9px; border-radius:3px;}
-  .project-desc{color:var(--ink-soft); margin-bottom:14px; font-size:0.98rem;}
-  .pipeline{display:flex; flex-wrap:wrap; gap:0; align-items:center; margin-bottom:14px;}
-  .pipe-step{
-    font-family:'IBM Plex Mono'; font-size:0.76rem; background:var(--paper);
-    border:1px solid var(--pcb); padding:7px 12px; border-radius:3px; color:var(--pcb-deep);
+  .cert-image{
+    height:230px;
   }
-  .pipe-arrow{color:var(--copper); padding:0 8px; font-size:0.9rem;}
 
-  /* CERTS as BOM table */
-  .bom{width:100%; border-collapse:collapse; font-size:0.9rem;}
-  .bom th{
-    font-family:'IBM Plex Mono'; text-align:left; font-size:0.72rem; color:var(--copper);
-    padding:8px 10px; border-bottom:1.5px solid var(--pcb); text-transform:none;
+  .cert-modal{
+    padding:15px;
   }
-  .bom td{padding:10px; border-bottom:1px solid var(--line); color:var(--ink-soft);}
-  .bom tr td:first-child{color:var(--pcb-deep); font-weight:500;}
-  .bom-wrap{overflow-x:auto; background:#fff; border:1px solid var(--line); border-radius:6px;}
-  .cert-link{font-family:'IBM Plex Mono'; font-size:0.78rem; color:var(--copper); white-space:nowrap;}
-  .cert-link:hover{color:var(--copper-light); text-decoration:underline;}
 
-  /* CONTACT */
-  .contact{background:var(--pcb-deep); color:var(--paper-card); text-align:center; padding:70px 0 50px;}
-  .contact h2{color:var(--paper-card);}
-  .contact p.lede{color:rgba(247,244,234,0.68); margin-left:auto; margin-right:auto;}
-  .contact-links{display:flex; justify-content:center; gap:16px; flex-wrap:wrap; margin-top:30px;}
-  .clink{
-    font-family:'IBM Plex Mono'; font-size:0.85rem; border:1px solid rgba(247,244,234,0.3);
-    padding:12px 20px; border-radius:3px; transition:border-color .15s ease, color .15s ease;
+  .cert-modal-content{
+    max-height:90vh;
   }
-  .clink:hover{border-color:var(--gold); color:var(--gold);}
-  footer{text-align:center; padding:22px 0; font-family:'IBM Plex Mono'; font-size:0.72rem; color:var(--ink-soft); background:var(--pcb-deep);}
-  footer span{color:rgba(247,244,234,0.4);}
 
-  .fade-in{opacity:0; transform:translateY(10px); animation:fadeUp .7s ease forwards;}
-  @keyframes fadeUp{to{opacity:1; transform:translateY(0);}}
+  .cert-modal-image{
+    max-height:82vh;
+  }
+
+  .cert-close{
+    top:-38px;
+
+    right:3px;
+
+    font-size:30px;
+  }
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact{
+  background:var(--pcb-deep);
+
+  color:var(--paper-card);
+
+  text-align:center;
+
+  padding:70px 0 50px;
+}
+
+.contact h2{
+  color:var(--paper-card);
+}
+
+.contact p.lede{
+  color:rgba(247,244,234,0.68);
+
+  margin-left:auto;
+
+  margin-right:auto;
+}
+
+.contact-links{
+  display:flex;
+
+  justify-content:center;
+
+  gap:16px;
+
+  flex-wrap:wrap;
+
+  margin-top:30px;
+}
+
+.clink{
+  font-family:'IBM Plex Mono';
+
+  font-size:0.85rem;
+
+  border:1px solid rgba(247,244,234,0.3);
+
+  padding:12px 20px;
+
+  border-radius:3px;
+
+  transition:
+    border-color .15s ease,
+    color .15s ease;
+}
+
+.clink:hover{
+  border-color:var(--gold);
+
+  color:var(--gold);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  text-align:center;
+
+  padding:22px 0;
+
+  font-family:'IBM Plex Mono';
+
+  font-size:0.72rem;
+
+  color:var(--ink-soft);
+
+  background:var(--pcb-deep);
+}
+
+footer span{
+  color:rgba(247,244,234,0.4);
+}
+
+
+/* =========================
+   FADE ANIMATION
+========================= */
+
+.fade-in{
+  opacity:0;
+
+  transform:translateY(10px);
+
+  animation:fadeUp .7s ease forwards;
+}
+
+@keyframes fadeUp{
+
+  to{
+    opacity:1;
+
+    transform:translateY(0);
+  }
+}
+
 </style>
 </head>
+
+
 <body>
 
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
 <header class="nav">
+
   <div class="navrow">
-    <div class="brand"><span class="pad"></span>AMUDHA S</div>
+
+    <div class="brand">
+
+      <span class="pad"></span>
+
+      AMUDHA S
+
+    </div>
+
+
     <nav class="links">
+
       <a href="#about">About</a>
+
       <a href="#education">Education</a>
+
       <a href="#experience">Experience</a>
+
       <a href="#skills">Skills</a>
+
       <a href="#projects">Projects</a>
+
       <a href="#certs">Certifications</a>
+
       <a href="#contact">Contact</a>
+
     </nav>
+
   </div>
+
 </header>
 
+
+
+<!-- =========================
+     HERO
+========================= -->
+
 <section class="hero">
-  <svg class="traces" viewBox="0 0 900 400" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 60 H180 V140 H420 V90 H900" stroke="#C9A227" stroke-width="1" fill="none" opacity="0.25"/>
-    <path d="M0 320 H140 V260 H500 V330 H900" stroke="#B5651D" stroke-width="1" fill="none" opacity="0.22"/>
-    <circle cx="180" cy="60" r="3" fill="#C9A227" opacity="0.5"/>
-    <circle cx="420" cy="140" r="3" fill="#C9A227" opacity="0.5"/>
-    <circle cx="140" cy="320" r="3" fill="#B5651D" opacity="0.5"/>
-    <circle cx="500" cy="260" r="3" fill="#B5651D" opacity="0.5"/>
+
+  <svg
+    class="traces"
+    viewBox="0 0 900 400"
+    preserveAspectRatio="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+
+    <path
+      d="M0 60 H180 V140 H420 V90 H900"
+      stroke="#C9A227"
+      stroke-width="1"
+      fill="none"
+      opacity="0.25"
+    />
+
+    <path
+      d="M0 320 H140 V260 H500 V330 H900"
+      stroke="#B5651D"
+      stroke-width="1"
+      fill="none"
+      opacity="0.22"
+    />
+
+    <circle
+      cx="180"
+      cy="60"
+      r="3"
+      fill="#C9A227"
+      opacity="0.5"
+    />
+
+    <circle
+      cx="420"
+      cy="140"
+      r="3"
+      fill="#C9A227"
+      opacity="0.5"
+    />
+
+    <circle
+      cx="140"
+      cy="320"
+      r="3"
+      fill="#B5651D"
+      opacity="0.5"
+    />
+
+    <circle
+      cx="500"
+      cy="260"
+      r="3"
+      fill="#B5651D"
+      opacity="0.5"
+    />
+
   </svg>
+
+
   <div class="wrap fade-in">
-    <div class="hero-eyebrow"><span class="chip">B.E. ECE · 2023–2027</span></div>
-    <h1 class="name">Amudha S</h1>
-    <p class="hero-role">Electronics &amp; Communication Engineering student building embedded systems, VLSI designs, and applied ML pipelines.</p>
-    <p class="hero-desc">I work across microcontrollers, digital &amp; analog electronics, and communication systems — currently exploring memory interfaces in VLSI and computer-vision pipelines for real-world compliance problems.</p>
-    <div class="hero-cta">
-      <a class="btn btn-primary" href="#projects">View projects</a>
-      <a class="btn btn-ghost" href="#contact">Get in touch</a>
+
+    <div class="hero-eyebrow">
+
+      <span class="chip">
+        B.E. ECE · 2023–2027
+      </span>
+
     </div>
+
+
+    <h1 class="name">
+      Amudha S
+    </h1>
+
+
+    <p class="hero-role">
+
+      Electronics &amp; Communication Engineering student
+      building embedded systems, VLSI designs, and IoT solutions.
+
+    </p>
+
+
+    <p class="hero-desc">
+
+      I work across microcontrollers, digital &amp; analog electronics,
+      communication systems, and VLSI design. I enjoy turning
+      engineering concepts into practical solutions.
+
+    </p>
+
+
+    <div class="hero-cta">
+
+      <a
+        class="btn btn-primary"
+        href="#projects"
+      >
+        View projects
+      </a>
+
+
+      <a
+        class="btn btn-ghost"
+        href="#contact"
+      >
+        Get in touch
+      </a>
+
+    </div>
+
   </div>
+
 </section>
+
+
+
+<!-- =========================
+     ABOUT
+========================= -->
 
 <section id="about">
+
   <div class="wrap">
+
     <div class="sec-head">
-      <div class="sec-tag">// 01 — about</div>
-      <h2>Who I am</h2>
-    </div>
-    <div class="about-grid">
-      <p class="lede" style="margin-top:0;">
-        I'm a motivated ECE student with strong interest in embedded systems, VLSI, IoT, and communication systems.
-        I like turning circuit-level and systems-level ideas into working prototypes — from a Verilog-based memory
-        interface with built-in error correction, to a full compliance-checking pipeline that combines computer
-        vision with a rules engine. I'm looking for opportunities to apply what I've learned to real engineering
-        problems and keep growing as a builder.
-      </p>
-      <div>
-        <div class="fact"><span>Location</span><span>Tamil Nadu, India</span></div>
-        <div class="fact"><span>Languages</span><span>Tamil · English</span></div>
-        <div class="fact"><span>Current CGPA</span><span>8.32 / 10</span></div>
-        <div class="fact"><span>Focus</span><span>VLSI · Embedded · IoT</span></div>
+
+      <div class="sec-tag">
+        // 01 — about
       </div>
+
+      <h2>
+        Who I am
+      </h2>
+
     </div>
+
+
+    <div class="about-grid">
+
+      <p
+        class="lede"
+        style="margin-top:0;"
+      >
+
+        I'm a motivated Electronics and Communication Engineering
+        student with strong interest in embedded systems, VLSI,
+        IoT, and communication systems.
+
+        I enjoy learning new technologies and converting
+        engineering concepts into practical projects.
+
+      </p>
+
+
+      <div>
+
+        <div class="fact">
+
+          <span>
+            Location
+          </span>
+
+          <span>
+            Tamil Nadu, India
+          </span>
+
+        </div>
+
+
+        <div class="fact">
+
+          <span>
+            Languages
+          </span>
+
+          <span>
+            Tamil · English
+          </span>
+
+        </div>
+
+
+        <div class="fact">
+
+          <span>
+            Current CGPA
+          </span>
+
+          <span>
+            8.32 / 10
+          </span>
+
+        </div>
+
+
+        <div class="fact">
+
+          <span>
+            Focus
+          </span>
+
+          <span>
+            VLSI · Embedded · IoT
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
+
 </section>
 
-<section class="alt" id="education">
+
+
+<!-- =========================
+     EDUCATION
+========================= -->
+
+<section
+  class="alt"
+  id="education"
+>
+
   <div class="wrap">
+
     <div class="sec-head">
-      <div class="sec-tag">// 02 — education</div>
-      <h2>Academic background</h2>
+
+      <div class="sec-tag">
+        // 02 — education
+      </div>
+
+      <h2>
+        Academic background
+      </h2>
+
     </div>
+
+
     <div class="tl">
+
+
       <div class="tl-item">
-        <div class="tl-title">B.E. — Electronics and Communication Engineering</div>
-        <div class="tl-meta">Adhiparasakthi Engineering College · 2023 – 2027</div>
-        <div class="tl-body">CGPA: 8.32, till 6th semester.</div>
+
+        <div class="tl-title">
+
+          B.E. — Electronics and Communication Engineering
+
+        </div>
+
+
+        <div class="tl-meta">
+
+          Adhiparasakthi Engineering College · 2023 – 2027
+
+        </div>
+
+
+        <div class="tl-body">
+
+          CGPA: 8.32 / 10, till 6th semester.
+
+        </div>
+
       </div>
+
+
+
       <div class="tl-item">
-        <div class="tl-title">Higher Secondary Education (HSC)</div>
-        <div class="tl-meta">St. Philomenal Girls Higher Secondary School · 2023</div>
-        <div class="tl-body">Percentage: 86.42%</div>
+
+        <div class="tl-title">
+
+          Higher Secondary Education (HSC)
+
+        </div>
+
+
+        <div class="tl-meta">
+
+          St. Philomenal Girls Higher Secondary School · 2023
+
+        </div>
+
+
+        <div class="tl-body">
+
+          Percentage: 86.42%
+
+        </div>
+
       </div>
+
+
     </div>
+
   </div>
+
 </section>
+
+
+
+<!-- =========================
+     EXPERIENCE
+========================= -->
 
 <section id="experience">
+
   <div class="wrap">
+
     <div class="sec-head">
-      <div class="sec-tag">// 03 — experience</div>
-      <h2>Internships</h2>
+
+      <div class="sec-tag">
+        // 03 — experience
+      </div>
+
+      <h2>
+        Internships &amp; Training
+      </h2>
+
     </div>
+
+
     <div class="tl">
+
+
+      <!-- VLSI -->
+
       <div class="tl-item">
-        <div class="tl-title">VLSI Internship Training</div>
-        <div class="tl-meta">Aug 2026 · 1 month</div>
-        <div class="tl-body">Practical training in VLSI design, gaining exposure to core VLSI concepts and industry applications.</div>
+
+        <div class="tl-title">
+
+          VLSI Course Training
+
+        </div>
+
+
+        <div class="tl-meta">
+
+          Tech Vedhu · Aug – Sep 2026
+
+        </div>
+
+
+        <div class="tl-body">
+
+          Completed a VLSI course covering fundamental VLSI
+          concepts and practical exposure to VLSI technologies.
+
+        </div>
+
       </div>
+
+
+
+      <!-- WEB -->
+
       <div class="tl-item">
-        <div class="tl-title">Web Technologies Intern</div>
-        <div class="tl-meta">ASKAN Technologies Pvt. Ltd. · Jun 2025 · 1 month</div>
-        <div class="tl-body">Hands-on exposure to web technologies and web development in a practical industry setting.</div>
+
+        <div class="tl-title">
+
+          Web Technologies Intern
+
+        </div>
+
+
+        <div class="tl-meta">
+
+          ASKAN Technologies Pvt. Ltd. · Jun 2025 · 1 month
+
+        </div>
+
+
+        <div class="tl-body">
+
+          Hands-on exposure to web technologies and
+          web development in a practical industry setting.
+
+        </div>
+
       </div>
+
+
+
+      <!-- DIGITAL MARKETING -->
+
       <div class="tl-item">
-        <div class="tl-title">Digital Marketing &amp; Web Development Intern</div>
-        <div class="tl-meta">Jun – Jul 2025</div>
-        <div class="tl-body">Practical exposure to digital marketing, web development, and related digital technologies.</div>
+
+        <div class="tl-title">
+
+          Digital Marketing &amp; Web Development Intern
+
+        </div>
+
+
+        <div class="tl-meta">
+
+          Jun – Jul 2025
+
+        </div>
+
+
+        <div class="tl-body">
+
+          Practical exposure to digital marketing,
+          web development, and related digital technologies.
+
+        </div>
+
       </div>
+
+
     </div>
+
   </div>
+
 </section>
 
-<section class="alt" id="skills">
+
+
+<!-- =========================
+     SKILLS
+========================= -->
+
+<section
+  class="alt"
+  id="skills"
+>
+
   <div class="wrap">
+
     <div class="sec-head">
-      <div class="sec-tag">// 04 — skills</div>
-      <h2>What I work with</h2>
+
+      <div class="sec-tag">
+        // 04 — skills
+      </div>
+
+      <h2>
+        What I work with
+      </h2>
+
     </div>
+
+
     <div class="skill-grid">
+
+
+      <!-- PROGRAMMING -->
+
       <div class="skill-card">
-        <h3>Programming</h3>
-        <div class="tags"><span class="tag">C</span><span class="tag">Python</span></div>
-      </div>
-      <div class="skill-card">
-        <h3>Embedded Systems</h3>
-        <div class="tags"><span class="tag">Arduino</span><span class="tag">ESP8266</span><span class="tag">ESP32</span></div>
-      </div>
-      <div class="skill-card">
-        <h3>Core ECE</h3>
+
+        <h3>
+          Programming
+        </h3>
+
         <div class="tags">
-          <span class="tag">Digital Electronics</span><span class="tag">Analog Electronics</span>
-          <span class="tag">Communication Systems</span><span class="tag">Microprocessors &amp; Microcontrollers</span>
+
+          <span class="tag">
+            C
+          </span>
+
+          <span class="tag">
+            Python
+          </span>
+
+          <span class="tag">
+            Verilog HDL
+          </span>
+
         </div>
+
       </div>
+
+
+
+      <!-- EMBEDDED -->
+
       <div class="skill-card">
-        <h3>Tools &amp; Software</h3>
+
+        <h3>
+          Embedded Systems
+        </h3>
+
         <div class="tags">
-          <span class="tag">MATLAB</span><span class="tag">Arduino IDE</span><span class="tag">Proteus</span>
-          <span class="tag">MS Office</span><span class="tag">Google Workspace</span>
+
+          <span class="tag">
+            Arduino
+          </span>
+
+          <span class="tag">
+            ESP8266
+          </span>
+
+          <span class="tag">
+            ESP32
+          </span>
+
         </div>
+
       </div>
+
+
+
+      <!-- CORE ECE -->
+
       <div class="skill-card">
-        <h3>Soft Skills</h3>
+
+        <h3>
+          Core ECE
+        </h3>
+
         <div class="tags">
-          <span class="tag">Communication</span><span class="tag">Teamwork</span><span class="tag">Problem Solving</span>
-          <span class="tag">Time Management</span><span class="tag">Leadership</span><span class="tag">Adaptability</span>
+
+          <span class="tag">
+            Digital Electronics
+          </span>
+
+          <span class="tag">
+            Analog Electronics
+          </span>
+
+          <span class="tag">
+            Communication Systems
+          </span>
+
+          <span class="tag">
+            Microprocessors &amp; Microcontrollers
+          </span>
+
         </div>
+
       </div>
+
+
+
+      <!-- TOOLS -->
+
       <div class="skill-card">
-        <h3>Languages</h3>
-        <div class="tags"><span class="tag">Tamil — Native</span><span class="tag">English — Professional</span></div>
+
+        <h3>
+          Tools &amp; Software
+        </h3>
+
+        <div class="tags">
+
+          <span class="tag">
+            MATLAB
+          </span>
+
+          <span class="tag">
+            Arduino IDE
+          </span>
+
+          <span class="tag">
+            Proteus
+          </span>
+
+          <span class="tag">
+            MS Office
+          </span>
+
+          <span class="tag">
+            Google Workspace
+          </span>
+
+        </div>
+
       </div>
+
+
+
+      <!-- SOFT SKILLS -->
+
+      <div class="skill-card">
+
+        <h3>
+          Soft Skills
+        </h3>
+
+        <div class="tags">
+
+          <span class="tag">
+            Communication
+          </span>
+
+          <span class="tag">
+            Teamwork
+          </span>
+
+          <span class="tag">
+            Problem Solving
+          </span>
+
+          <span class="tag">
+            Time Management
+          </span>
+
+          <span class="tag">
+            Leadership
+          </span>
+
+          <span class="tag">
+            Adaptability
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- LANGUAGES -->
+
+      <div class="skill-card">
+
+        <h3>
+          Languages
+        </h3>
+
+        <div class="tags">
+
+          <span class="tag">
+            Tamil — Native
+          </span>
+
+          <span class="tag">
+            English — Professional
+          </span>
+
+        </div>
+
+      </div>
+
+
     </div>
+
   </div>
+
 </section>
+
+
+
+<!-- =========================
+     PROJECTS
+========================= -->
 
 <section id="projects">
+
   <div class="wrap">
+
     <div class="sec-head">
-      <div class="sec-tag">// 05 — projects</div>
-      <h2>Featured work</h2>
+
+      <div class="sec-tag">
+        // 05 — projects
+      </div>
+
+      <h2>
+        Featured work
+      </h2>
+
     </div>
+
+
+    <!-- PROJECT 01 -->
 
     <div class="chip-card project">
+
       <div class="project-head">
-        <div class="project-title">Memory Interface in VLSI Systems using Verilog HDL, with Error Detection &amp; Correction</div>
-        <div class="project-index">01</div>
+
+        <div class="project-title">
+
+          Memory Interface in VLSI Systems
+          using Verilog HDL, with Error Detection &amp; Correction
+
+        </div>
+
+
+        <div class="project-index">
+          01
+        </div>
+
       </div>
+
+
       <p class="project-desc">
-        Designed and implemented a memory interface for a VLSI system in Verilog HDL, with built-in error
-        detection and correction (EDAC) logic to protect data integrity during read/write operations. Covers
-        RTL design and functional simulation of the interface and its EDAC path.
+
+        Designed and implemented a memory interface for a
+        VLSI system in Verilog HDL, with built-in error
+        detection and correction (EDAC) logic to protect
+        data integrity during read/write operations.
+
+        The project covers RTL design and functional
+        simulation of the memory interface and its
+        error detection and correction path.
+
       </p>
+
+
       <div class="tags">
-        <span class="tag">Verilog HDL</span><span class="tag">VLSI</span><span class="tag">RTL Design</span>
-        <span class="tag">Error Detection &amp; Correction</span><span class="tag">Simulation</span>
+
+        <span class="tag">
+          Verilog HDL
+        </span>
+
+        <span class="tag">
+          VLSI
+        </span>
+
+        <span class="tag">
+          RTL Design
+        </span>
+
+        <span class="tag">
+          Error Detection &amp; Correction
+        </span>
+
+        <span class="tag">
+          Simulation
+        </span>
+
       </div>
+
     </div>
 
-    <div class="chip-card project">
-      <div class="project-head">
-        <div class="project-title">Legal Metrology Compliance Checker</div>
-        <div class="project-index">02</div>
-      </div>
-      <p class="project-desc">
-        A system that scans product images and labels to automatically check compliance with Legal Metrology
-        regulations. Extracted label text is validated against a configurable rules engine, with results served
-        through an API backend.
-      </p>
-      <div class="pipeline">
-        <span class="pipe-step">Image input</span><span class="pipe-arrow">→</span>
-        <span class="pipe-step">YOLOv8 label detection</span><span class="pipe-arrow">→</span>
-        <span class="pipe-step">OCR extraction</span><span class="pipe-arrow">→</span>
-        <span class="pipe-step">Rules engine (Postgres)</span><span class="pipe-arrow">→</span>
-        <span class="pipe-step">FastAPI / Django backend</span>
-      </div>
-      <div class="tags">
-        <span class="tag">OCR</span><span class="tag">YOLOv8</span><span class="tag">Computer Vision</span>
-        <span class="tag">FastAPI</span><span class="tag">Django</span><span class="tag">PostgreSQL</span>
-      </div>
-    </div>
   </div>
+
 </section>
 
-<section class="alt" id="certs">
+
+
+<!-- =========================
+     CERTIFICATIONS
+========================= -->
+
+<section
+  class="alt"
+  id="certs"
+>
+
   <div class="wrap">
+
     <div class="sec-head">
-      <div class="sec-tag">// 06 — certifications</div>
-      <h2>Achievements &amp; certifications</h2>
+
+      <div class="sec-tag">
+        // 06 — certifications
+      </div>
+
+
+      <h2>
+        Certifications &amp; Achievements
+      </h2>
+
+
+      <p class="lede">
+
+        A collection of my professional certifications,
+        technical training, workshops, and achievements.
+
+        Click any certificate to view the full certificate.
+
+      </p>
+
     </div>
-    <div class="bom-wrap">
-      <table class="bom">
-        <thead>
-          <tr><th>Certification</th><th>Issuer</th><th>Detail</th><th>Verify</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Introduction to Industry 4.0 and Industrial IoT (NPTEL)</td><td>IIT Kharagpur</td><td>Score: 76% · 2026</td><td><a class="cert-link" href="https://linkedin.com/in/amudha-s-004496387" target="_blank" rel="noopener">View →</a></td></tr>
-          <tr><td>Passport to Earning (P2E) — Communication Skills</td><td>YuWaah / UNICEF</td><td>Score: 100% · 2026</td><td><a class="cert-link" href="https://linkedin.com/in/amudha-s-004496387" target="_blank" rel="noopener">View →</a></td></tr>
-          <tr><td>Passport to Earning (P2E) — Bang Job Ready</td><td>YuWaah / UNICEF</td><td>Score: 75% · 2026</td><td><a class="cert-link" href="https://linkedin.com/in/amudha-s-004496387" target="_blank" rel="noopener">View →</a></td></tr>
-          <tr><td>Embedded for Beginners</td><td>NIELIT Calicut</td><td>Certificate of Participation · 2026</td><td><a class="cert-link" href="https://linkedin.com/in/amudha-s-004496387" target="_blank" rel="noopener">View →</a></td></tr>
-          <tr><td>VLSI Internship Training</td><td>—</td><td>Certificate of Participation · 2026</td><td><a class="cert-link" href="https://linkedin.com/in/amudha-s-004496387" target="_blank" rel="noopener">View →</a></td></tr>
-          <tr><td>Web Technologies Internship</td><td>ASKAN Technologies Pvt. Ltd.</td><td>Internship Certificate</td><td><a class="cert-link" href="https://linkedin.com/in/amudha-s-004496387" target="_blank" rel="noopener">View →</a></td></tr>
-          <tr><td>Digital Marketing &amp; Web Development Internship</td><td>—</td><td>Internship Certificate</td><td><a class="cert-link" href="https://linkedin.com/in/amudha-s-004496387" target="_blank" rel="noopener">View →</a></td></tr>
-          <tr><td>Core Java Programming</td><td>Adhiparasakthi Engineering College</td><td>Value-Added Programme</td><td><a class="cert-link" href="https://linkedin.com/in/amudha-s-004496387" target="_blank" rel="noopener">View →</a></td></tr>
-          <tr><td>Art of Communication Workshop</td><td>Adhiparasakthi Engineering College</td><td>Workshop</td><td><a class="cert-link" href="https://linkedin.com/in/amudha-s-004496387" target="_blank" rel="noopener">View →</a></td></tr>
-        </tbody>
-      </table>
-      <p style="font-family:'IBM Plex Mono'; font-size:0.74rem; color:var(--ink-soft); padding:10px 14px 4px;">All certifications are verifiable on my LinkedIn profile.</p>
+
+
+
+    <div class="cert-grid">
+
+
+      <!-- =====================
+           CERTIFICATE 01
+      ====================== -->
+
+      <div
+        class="cert-card"
+        onclick="openCertificate('certificates/vlsi-tech-vedhu.jpg')"
+      >
+
+        <img
+          src="certificates/vlsi-tech-vedhu.jpg"
+          alt="VLSI Course Completion Certificate"
+          class="cert-image"
+        >
+
+
+        <div class="cert-info">
+
+          <div class="cert-title">
+
+            VLSI Course Completion
+
+          </div>
+
+
+          <div class="cert-issuer">
+
+            Tech Vedhu
+
+          </div>
+
+
+          <div class="cert-detail">
+
+            06 Aug – 07 Sep 2026 ·
+            Certificate issued 08 Sep 2026
+
+          </div>
+
+
+          <div class="cert-view">
+
+            View Certificate →
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =====================
+           CERTIFICATE 02
+      ====================== -->
+
+      <div
+        class="cert-card"
+        onclick="openCertificate('certificates/nptel-industry-4-iot.png')"
+      >
+
+        <img
+          src="certificates/nptel-industry-4-iot.png"
+          alt="NPTEL Industry 4.0 and Industrial IoT Certificate"
+          class="cert-image"
+        >
+
+
+        <div class="cert-info">
+
+          <div class="cert-title">
+
+            Introduction to Industry 4.0 and
+            Industrial Internet of Things
+
+          </div>
+
+
+          <div class="cert-issuer">
+
+            NPTEL · IIT Kharagpur
+
+          </div>
+
+
+          <div class="cert-detail">
+
+            Score: 76% · Jan–Apr 2026 ·
+            12-week course
+
+          </div>
+
+
+          <div class="cert-view">
+
+            View Certificate →
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =====================
+           CERTIFICATE 03
+      ====================== -->
+
+      <div
+        class="cert-card"
+        onclick="openCertificate('certificates/p2e-communication-skills.jpg')"
+      >
+
+        <img
+          src="certificates/p2e-communication-skills.jpg"
+          alt="Passport to Earning Communication Skills Certificate"
+          class="cert-image"
+        >
+
+
+        <div class="cert-info">
+
+          <div class="cert-title">
+
+            Communication Skills
+
+          </div>
+
+
+          <div class="cert-issuer">
+
+            Passport to Earning · YuWaah / UNICEF
+
+          </div>
+
+
+          <div class="cert-detail">
+
+            Score: 100% · 09 Aug 2026
+
+          </div>
+
+
+          <div class="cert-view">
+
+            View Certificate →
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =====================
+           CERTIFICATE 04
+      ====================== -->
+
+      <div
+        class="cert-card"
+        onclick="openCertificate('certificates/nielit-embedded-for-beginners.png')"
+      >
+
+        <img
+          src="certificates/nielit-embedded-for-beginners.png"
+          alt="NIELIT Embedded for Beginners Certificate"
+          class="cert-image"
+        >
+
+
+        <div class="cert-info">
+
+          <div class="cert-title">
+
+            Embedded for Beginners
+
+          </div>
+
+
+          <div class="cert-issuer">
+
+            NIELIT Calicut
+
+          </div>
+
+
+          <div class="cert-detail">
+
+            Certificate of Participation ·
+            10–14 Mar 2026
+
+          </div>
+
+
+          <div class="cert-view">
+
+            View Certificate →
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =====================
+           CERTIFICATE 05
+      ====================== -->
+
+      <div
+        class="cert-card"
+        onclick="openCertificate('certificates/nptel-interview-readiness.jpg')"
+      >
+
+        <img
+          src="certificates/nptel-interview-readiness.jpg"
+          alt="NPTEL Interview Readiness Certificate"
+          class="cert-image"
+        >
+
+
+        <div class="cert-info">
+
+          <div class="cert-title">
+
+            Online Soft Skills Training
+            on Interview Readiness
+
+          </div>
+
+
+          <div class="cert-issuer">
+
+            NPTEL
+
+          </div>
+
+
+          <div class="cert-detail">
+
+            20 Hours · 09–25 Feb 2026
+
+          </div>
+
+
+          <div class="cert-view">
+
+            View Certificate →
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =====================
+           CERTIFICATE 06
+      ====================== -->
+
+      <div
+        class="cert-card"
+        onclick="openCertificate('certificates/sih-internal-hackathon-2026.png')"
+      >
+
+        <img
+          src="certificates/sih-internal-hackathon-2026.png"
+          alt="SIH Internal Hackathon 2026 Certificate"
+          class="cert-image"
+        >
+
+
+        <div class="cert-info">
+
+          <div class="cert-title">
+
+            SIH Internal Hackathon 2026
+
+          </div>
+
+
+          <div class="cert-issuer">
+
+            Adhiparasakthi Engineering College
+
+          </div>
+
+
+          <div class="cert-detail">
+
+            Certificate of Appreciation ·
+            Shortlisted · 02 Sep 2026
+
+          </div>
+
+
+          <div class="cert-view">
+
+            View Achievement →
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =====================
+           CERTIFICATE 07
+      ====================== -->
+
+      <div
+        class="cert-card"
+        onclick="openCertificate('certificates/p2e-bano-job-ready.jpg')"
+      >
+
+        <img
+          src="certificates/p2e-bano-job-ready.jpg"
+          alt="Passport to Earning Bano Job Ready Certificate"
+          class="cert-image"
+        >
+
+
+        <div class="cert-info">
+
+          <div class="cert-title">
+
+            Bano Job Ready
+
+          </div>
+
+
+          <div class="cert-issuer">
+
+            Passport to Earning · YuWaah / UNICEF
+
+          </div>
+
+
+          <div class="cert-detail">
+
+            Score: 75% · 31 Jul 2026
+
+          </div>
+
+
+          <div class="cert-view">
+
+            View Certificate →
+
+          </div>
+
+        </div>
+
+      </div>
+
+
     </div>
+
   </div>
+
 </section>
 
-<section class="contact" id="contact">
+
+
+<!-- =========================
+     CERTIFICATE MODAL
+========================= -->
+
+<div
+  class="cert-modal"
+  id="certificateModal"
+>
+
+  <div class="cert-modal-content">
+
+
+    <span
+      class="cert-close"
+      onclick="closeCertificate()"
+      aria-label="Close certificate"
+    >
+      &times;
+    </span>
+
+
+    <img
+      id="certificateModalImage"
+      class="cert-modal-image"
+      src=""
+      alt="Certificate Preview"
+    >
+
+  </div>
+
+</div>
+
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section
+  class="contact"
+  id="contact"
+>
+
   <div class="wrap">
-    <div class="sec-tag" style="color:var(--gold);">// 07 — contact</div>
-    <h2>Let's connect</h2>
-    <p class="lede">Open to internships and entry-level roles in embedded systems, VLSI, and IoT. Reach out any time.</p>
+
+
+    <div
+      class="sec-tag"
+      style="color:var(--gold);"
+    >
+
+      // 07 — contact
+
+    </div>
+
+
+    <h2>
+      Let's connect
+    </h2>
+
+
+    <p class="lede">
+
+      Open to internships and entry-level opportunities
+      in embedded systems, VLSI, IoT, and related
+      Electronics &amp; Communication Engineering fields.
+
+      Reach out any time.
+
+    </p>
+
+
     <div class="contact-links">
-      <a class="clink" href="mailto:amudhasriramu@gmail.com">amudhasriramu@gmail.com</a>
-      <a class="clink" href="tel:+918610322160">+91 86103 22160</a>
-      <a class="clink" href="https://linkedin.com/in/amudha-s-004496387" target="_blank" rel="noopener">linkedin.com/in/amudha-s</a>
+
+
+      <!-- EMAIL -->
+
+      <a
+        class="clink"
+        href="mailto:amudhasriramu@gmail.com"
+      >
+
+        ✉ amudhasriramu@gmail.com
+
+      </a>
+
+
+
+      <!-- PHONE -->
+
+      <a
+        class="clink"
+        href="tel:+918610322160"
+      >
+
+        ☎ +91 86103 22160
+
+      </a>
+
+
+
+      <!-- LINKEDIN -->
+
+      <a
+        class="clink"
+        href="https://linkedin.com/in/amudha-s-004496387"
+        target="_blank"
+        rel="noopener"
+      >
+
+        LinkedIn
+
+      </a>
+
+
     </div>
+
   </div>
+
 </section>
 
-<footer>© 2026 Amudha S <span>· built with care</span></footer>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+  © 2026 Amudha S
+
+  <span>
+    · built with care
+  </span>
+
+</footer>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+/*
+  OPEN CERTIFICATE
+*/
+
+function openCertificate(imagePath){
+
+  const modal =
+    document.getElementById("certificateModal");
+
+  const image =
+    document.getElementById("certificateModalImage");
+
+
+  image.src = imagePath;
+
+
+  modal.classList.add("active");
+
+
+  document.body.style.overflow = "hidden";
+}
+
+
+
+/*
+  CLOSE CERTIFICATE
+*/
+
+function closeCertificate(){
+
+  const modal =
+    document.getElementById("certificateModal");
+
+  const image =
+    document.getElementById("certificateModalImage");
+
+
+  modal.classList.remove("active");
+
+
+  image.src = "";
+
+
+  document.body.style.overflow = "";
+}
+
+
+
+/*
+  CLOSE WHEN CLICKING OUTSIDE
+*/
+
+document
+  .getElementById("certificateModal")
+  .addEventListener(
+    "click",
+    function(event){
+
+      if(event.target === this){
+
+        closeCertificate();
+
+      }
+
+    }
+  );
+
+
+
+/*
+  CLOSE WITH ESC KEY
+*/
+
+document.addEventListener(
+  "keydown",
+  function(event){
+
+    if(event.key === "Escape"){
+
+      closeCertificate();
+
+    }
+
+  }
+);
+
+</script>
+
 
 </body>
 </html>
-
