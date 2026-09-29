@@ -777,6 +777,15 @@ p.lede{
   text-decoration:underline;
 }
 
+.cert-direct-link{
+  color:inherit;
+  text-decoration:none;
+  cursor:pointer;
+}
+.cert-direct-link:hover{
+  text-decoration:underline;
+}
+
 
 /* =========================
    CERTIFICATE MODAL
@@ -992,6 +1001,9 @@ footer span{
   }
 }
 
+
+.cert-direct-link{color:inherit;text-decoration:none;cursor:pointer;border:0;background:transparent;padding:0;font:inherit}.cert-direct-link:hover{text-decoration:underline}
+.certificate-viewer{display:none;position:fixed;z-index:9999;inset:0;background:rgba(0,0,0,.96);align-items:center;justify-content:center;padding:70px 20px 25px}.certificate-viewer.active{display:flex}.certificate-viewer-image{max-width:96vw;max-height:86vh;width:auto;height:auto;object-fit:contain;background:#fff;border-radius:8px;box-shadow:0 10px 50px rgba(0,0,0,.55)}.certificate-viewer-close{position:absolute;top:16px;right:22px;width:44px;height:44px;border:0;border-radius:50%;background:rgba(255,255,255,.14);color:#fff;font-size:30px;line-height:44px;cursor:pointer}.certificate-viewer-download{position:absolute;top:18px;left:22px;display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 18px;border-radius:8px;background:#fff;color:#111;text-decoration:none;font-weight:700;cursor:pointer}.certificate-viewer-download:hover{opacity:.88}@media(max-width:600px){.certificate-viewer{padding:70px 8px 18px}.certificate-viewer-image{max-width:98vw;max-height:82vh}.certificate-viewer-close{right:10px}.certificate-viewer-download{left:10px;padding:0 13px}}
 </style>
 </head>
 
@@ -1822,11 +1834,10 @@ footer span{
 
       <div
         class="cert-card"
-        onclick="openCertificate('certificates/vlsi-tech-vedhu.jpg')"
       >
 
         <img
-          src="certificates/vlsi-tech-vedhu.jpg"
+          src="certificates/file_00000000fb3c81fbab637aa443b8fbf7.jpg"
           alt="VLSI Course Completion Certificate"
           class="cert-image"
         >
@@ -1856,11 +1867,7 @@ footer span{
           </div>
 
 
-          <div class="cert-view">
-
-            View Certificate →
-
-          </div>
+          <div class="cert-view"><button class="cert-direct-link" type="button" onclick="openCertificateViewer(this.dataset.file)" data-file="certificates/file_00000000fb3c81fbab637aa443b8fbf7.jpg">View Certificate →</button></div>
 
         </div>
 
@@ -1874,11 +1881,10 @@ footer span{
 
       <div
         class="cert-card"
-        onclick="openCertificate('certificates/nptel-industry-4-iot.png')"
       >
 
         <img
-          src="certificates/nptel-industry-4-iot.png"
+          src="certificates/amudha_nptel.png"
           alt="NPTEL Industry 4.0 and Industrial IoT Certificate"
           class="cert-image"
         >
@@ -1909,11 +1915,7 @@ footer span{
           </div>
 
 
-          <div class="cert-view">
-
-            View Certificate →
-
-          </div>
+          <div class="cert-view"><button class="cert-direct-link" type="button" onclick="openCertificateViewer(this.dataset.file)" data-file="certificates/amudha_nptel.png">View Certificate →</button></div>
 
         </div>
 
@@ -1927,11 +1929,10 @@ footer span{
 
       <div
         class="cert-card"
-        onclick="openCertificate('certificates/p2e-communication-skills.jpg')"
       >
 
         <img
-          src="certificates/p2e-communication-skills.jpg"
+          src="certificates/IMG-20260812-WA0000.jpg"
           alt="Passport to Earning Communication Skills Certificate"
           class="cert-image"
         >
@@ -1960,11 +1961,7 @@ footer span{
           </div>
 
 
-          <div class="cert-view">
-
-            View Certificate →
-
-          </div>
+          <div class="cert-view"><button class="cert-direct-link" type="button" onclick="openCertificateViewer(this.dataset.file)" data-file="certificates/IMG-20260812-WA0000.jpg">View Certificate →</button></div>
 
         </div>
 
@@ -1978,11 +1975,10 @@ footer span{
 
       <div
         class="cert-card"
-        onclick="openCertificate('certificates/nielit-embedded-for-beginners.png')"
       >
 
         <img
-          src="certificates/nielit-embedded-for-beginners.png"
+          src="certificates/image.png"
           alt="NIELIT Embedded for Beginners Certificate"
           class="cert-image"
         >
@@ -2012,11 +2008,7 @@ footer span{
           </div>
 
 
-          <div class="cert-view">
-
-            View Certificate →
-
-          </div>
+          <div class="cert-view"><button class="cert-direct-link" type="button" onclick="openCertificateViewer(this.dataset.file)" data-file="certificates/image.png">View Certificate →</button></div>
 
         </div>
 
@@ -2030,11 +2022,10 @@ footer span{
 
       <div
         class="cert-card"
-        onclick="openCertificate('certificates/nptel-interview-readiness.jpg')"
       >
 
         <img
-          src="certificates/nptel-interview-readiness.jpg"
+          src="certificates/amudhasriramu_page1.jpg"
           alt="NPTEL Interview Readiness Certificate"
           class="cert-image"
         >
@@ -2064,11 +2055,7 @@ footer span{
           </div>
 
 
-          <div class="cert-view">
-
-            View Certificate →
-
-          </div>
+          <div class="cert-view"><button class="cert-direct-link" type="button" onclick="openCertificateViewer(this.dataset.file)" data-file="certificates/amudhasriramu_page1.jpg">View Certificate →</button></div>
 
         </div>
 
@@ -2082,11 +2069,10 @@ footer span{
 
       <div
         class="cert-card"
-        onclick="openCertificate('certificates/sih-internal-hackathon-2026.png')"
       >
 
         <img
-          src="certificates/sih-internal-hackathon-2026.png"
+          src="certificates/a28b5853c00b64f8704e697be686976fe48c645d3a340fb6975ba857b4d44cf7.png"
           alt="SIH Internal Hackathon 2026 Certificate"
           class="cert-image"
         >
@@ -2118,7 +2104,7 @@ footer span{
 
           <div class="cert-view">
 
-            View Achievement →
+            <button class="cert-direct-link" type="button" onclick="openCertificateViewer(this.dataset.file)" data-file="certificates/a28b5853c00b64f8704e697be686976fe48c645d3a340fb6975ba857b4d44cf7.png">View Certificate →</button>
 
           </div>
 
@@ -2134,11 +2120,10 @@ footer span{
 
       <div
         class="cert-card"
-        onclick="openCertificate('certificates/p2e-bano-job-ready.jpg')"
       >
 
         <img
-          src="certificates/p2e-bano-job-ready.jpg"
+          src="certificates/DOC-20260731-WA0004-1.jpg"
           alt="Passport to Earning Bano Job Ready Certificate"
           class="cert-image"
         >
@@ -2167,11 +2152,7 @@ footer span{
           </div>
 
 
-          <div class="cert-view">
-
-            View Certificate →
-
-          </div>
+          <div class="cert-view"><button class="cert-direct-link" type="button" onclick="openCertificateViewer(this.dataset.file)" data-file="certificates/DOC-20260731-WA0004-1.jpg">View Certificate →</button></div>
 
         </div>
 
@@ -2186,39 +2167,16 @@ footer span{
 
 
 
-<!-- =========================
-     CERTIFICATE MODAL
-========================= -->
-
-<div
-  class="cert-modal"
-  id="certificateModal"
->
-
-  <div class="cert-modal-content">
 
 
-    <span
-      class="cert-close"
-      onclick="closeCertificate()"
-      aria-label="Close certificate"
-    >
-      &times;
-    </span>
 
 
-    <img
-      id="certificateModalImage"
-      class="cert-modal-image"
-      src=""
-      alt="Certificate Preview"
-    >
-
-  </div>
-
+<!-- FULL-SCREEN CERTIFICATE VIEWER -->
+<div class="certificate-viewer" id="certificateViewer" aria-hidden="true">
+<a class="certificate-viewer-download" id="certificateDownload" href="#" download>Download Certificate ↓</a>
+<button class="certificate-viewer-close" type="button" onclick="closeCertificateViewer()" aria-label="Close certificate">&times;</button>
+<img class="certificate-viewer-image" id="certificateViewerImage" src="" alt="Certificate">
 </div>
-
-
 
 <!-- =========================
      CONTACT
@@ -2330,95 +2288,53 @@ footer span{
 ========================= -->
 
 <script>
+function openCertificateViewer(imagePath){
+  const viewer = document.getElementById("certificateViewer");
+  const image = document.getElementById("certificateViewerImage");
+  const download = document.getElementById("certificateDownload");
 
-/*
-  OPEN CERTIFICATE
-*/
+  if (!viewer || !image || !download) return;
 
-function openCertificate(imagePath){
+  const certificateUrl = new URL(imagePath, document.baseURI).href;
+  const fileName = imagePath.split("/").pop();
 
-  const modal =
-    document.getElementById("certificateModal");
+  image.src = certificateUrl;
+  image.alt = "Certificate - " + fileName;
+  download.href = certificateUrl;
+  download.download = fileName;
 
-  const image =
-    document.getElementById("certificateModalImage");
-
-
-  image.src = imagePath;
-
-
-  modal.classList.add("active");
-
-
+  viewer.classList.add("active");
+  viewer.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
 }
 
+function closeCertificateViewer(){
+  const viewer = document.getElementById("certificateViewer");
+  const image = document.getElementById("certificateViewerImage");
 
+  if (!viewer) return;
 
-/*
-  CLOSE CERTIFICATE
-*/
-
-function closeCertificate(){
-
-  const modal =
-    document.getElementById("certificateModal");
-
-  const image =
-    document.getElementById("certificateModalImage");
-
-
-  modal.classList.remove("active");
-
-
-  image.src = "";
-
-
+  viewer.classList.remove("active");
+  viewer.setAttribute("aria-hidden", "true");
+  if (image) image.src = "";
   document.body.style.overflow = "";
 }
 
-
-
-/*
-  CLOSE WHEN CLICKING OUTSIDE
-*/
-
-document
-  .getElementById("certificateModal")
-  .addEventListener(
-    "click",
-    function(event){
-
-      if(event.target === this){
-
-        closeCertificate();
-
-      }
-
+const certificateViewer = document.getElementById("certificateViewer");
+if (certificateViewer) {
+  certificateViewer.addEventListener("click", function(event){
+    if (event.target === certificateViewer) {
+      closeCertificateViewer();
     }
-  );
+  });
+}
 
-
-
-/*
-  CLOSE WITH ESC KEY
-*/
-
-document.addEventListener(
-  "keydown",
-  function(event){
-
-    if(event.key === "Escape"){
-
-      closeCertificate();
-
-    }
-
+document.addEventListener("keydown", function(event){
+  if (event.key === "Escape") {
+    closeCertificateViewer();
   }
-);
-
+});
 </script>
-
 
 </body>
 </html>
