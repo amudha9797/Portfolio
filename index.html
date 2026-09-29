@@ -328,18 +328,6 @@ h1.name{
   color:var(--gold);
 }
 
-.btn-resume{
-  border:1px solid var(--gold);
-  color:var(--paper-card);
-  background:rgba(201,162,39,0.10);
-}
-
-.btn-resume:hover{
-  background:var(--gold);
-  color:var(--pcb-deep);
-  transform:translateY(-1px);
-}
-
 .traces{
   position:absolute;
 
@@ -800,74 +788,84 @@ p.lede{
 
 
 /* =========================
-   CERTIFICATE IMAGE POPUP
+   CERTIFICATE MODAL
 ========================= */
 
-.view-certificate{
-  border:0;
-  background:none;
-  padding:0;
-  margin:0;
-  color:inherit;
-  font:inherit;
-  cursor:pointer;
-  text-decoration:none;
-}
-
-.view-certificate:hover{
-  text-decoration:underline;
-}
-
-.certificate-popup{
+.cert-modal{
   display:none;
+
   position:fixed;
+
+  z-index:100;
+
   inset:0;
-  z-index:9999;
-  background:rgba(0,0,0,.94);
-  padding:24px;
+
+  background:rgba(0,0,0,0.88);
+
+  padding:30px;
+
   align-items:center;
+
   justify-content:center;
 }
 
-.certificate-popup.show{
+.cert-modal.active{
   display:flex;
 }
 
-.certificate-popup-image{
-  display:block;
-  max-width:96vw;
+.cert-modal-content{
+  position:relative;
+
+  max-width:1100px;
+
   max-height:92vh;
-  width:auto;
-  height:auto;
-  object-fit:contain;
-  background:#fff;
-  border-radius:6px;
-  box-shadow:0 12px 50px rgba(0,0,0,.55);
-}
 
-.certificate-close{
-  position:absolute;
-  top:16px;
-  right:22px;
-  z-index:2;
-  width:44px;
-  height:44px;
-  border:0;
-  border-radius:50%;
-  background:rgba(255,255,255,.14);
-  color:#fff;
-  font-family:Arial,sans-serif;
-  font-size:34px;
-  line-height:44px;
+  width:100%;
+
   text-align:center;
-  cursor:pointer;
 }
 
-.certificate-close:hover{
-  background:rgba(255,255,255,.25);
+.cert-modal-image{
+  max-width:100%;
+
+  max-height:88vh;
+
+  object-fit:contain;
+
+  border-radius:5px;
+
+  background:white;
+
+  box-shadow:
+    0 10px 40px rgba(0,0,0,0.4);
+}
+
+.cert-close{
+  position:absolute;
+
+  top:-42px;
+
+  right:0;
+
+  color:white;
+
+  font-size:34px;
+
+  line-height:1;
+
+  cursor:pointer;
+
+  font-family:Arial,sans-serif;
+
+  transition:color .2s ease;
+}
+
+.cert-close:hover{
+  color:var(--gold);
 }
 
 @media (max-width:700px){
+
   .cert-grid{
     grid-template-columns:1fr;
   }
@@ -876,24 +874,27 @@ p.lede{
     height:230px;
   }
 
-  .certificate-popup{
-    padding:10px;
+  .cert-modal{
+    padding:15px;
   }
 
-  .certificate-popup-image{
-    max-width:98vw;
-    max-height:86vh;
+  .cert-modal-content{
+    max-height:90vh;
   }
 
-  .certificate-close{
-    top:10px;
-    right:12px;
-    width:40px;
-    height:40px;
-    line-height:40px;
+  .cert-modal-image{
+    max-height:82vh;
+  }
+
+  .cert-close{
+    top:-38px;
+
+    right:3px;
+
     font-size:30px;
   }
 }
+
 
 /* =========================
    CONTACT
@@ -1000,190 +1001,6 @@ footer span{
   }
 }
 
-
-/* =========================
-   RESUME
-========================= */
-
-.resume-card{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:24px;
-  padding:24px;
-  background:var(--paper-card);
-  border:1px solid var(--line);
-  border-left:4px solid var(--copper);
-}
-
-.resume-title{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:1rem;
-  font-weight:600;
-  margin-bottom:5px;
-}
-
-.resume-text{
-  color:var(--ink-soft);
-  font-size:0.92rem;
-}
-
-.resume-actions{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  justify-content:flex-end;
-}
-
-.resume-download{
-  border-color:var(--pcb);
-  color:var(--pcb);
-}
-
-.resume-download:hover{
-  background:var(--pcb);
-  color:var(--paper-card);
-}
-
-@media (max-width:700px){
-  .resume-card{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-
-  .resume-actions{
-    justify-content:flex-start;
-  }
-}
-
-
-/* =========================
-   INTERNSHIP CARDS
-========================= */
-.internship-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-  margin-top:28px;
-}
-.internship-card{
-  background:var(--paper-card);
-  border:1px solid rgba(15,61,46,.18);
-  border-radius:16px;
-  padding:24px;
-  box-shadow:0 8px 24px rgba(10,44,33,.08);
-  transition:transform .25s ease,box-shadow .25s ease;
-}
-.internship-card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 14px 30px rgba(10,44,33,.14);
-}
-.internship-number{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:12px;
-  font-weight:700;
-  letter-spacing:1px;
-  color:var(--copper);
-  margin-bottom:12px;
-}
-.internship-card h3{
-  margin:0 0 8px;
-  font-size:20px;
-  line-height:1.25;
-}
-.internship-company{
-  font-weight:600;
-  margin-bottom:5px;
-}
-.internship-duration{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:12px;
-  opacity:.72;
-  margin-bottom:15px;
-}
-.internship-card p{
-  line-height:1.7;
-  margin:0 0 16px;
-}
-.internship-tags{
-  display:flex;
-  flex-wrap:wrap;
-  gap:7px;
-}
-.internship-tag{
-  display:inline-block;
-  padding:5px 9px;
-  border:1px solid rgba(181,101,29,.35);
-  border-radius:999px;
-  font-family:'IBM Plex Mono',monospace;
-  font-size:10px;
-}
-@media(max-width:900px){
-  .internship-grid{grid-template-columns:1fr 1fr;}
-}
-@media(max-width:620px){
-  .internship-grid{grid-template-columns:1fr;}
-}
-
-
-/* =========================
-   ACHIEVEMENTS
-========================= */
-.achievement-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-  margin-top:28px;
-}
-.achievement-card{
-  position:relative;
-  background:var(--paper-card);
-  border:1px solid rgba(15,61,46,.18);
-  border-radius:16px;
-  padding:24px;
-  box-shadow:0 8px 24px rgba(10,44,33,.08);
-  transition:transform .25s ease,box-shadow .25s ease;
-}
-.achievement-card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 14px 30px rgba(10,44,33,.14);
-}
-.achievement-icon{
-  font-size:28px;
-  margin-bottom:12px;
-}
-.achievement-label{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:11px;
-  font-weight:700;
-  letter-spacing:1px;
-  color:var(--copper);
-  margin-bottom:9px;
-}
-.achievement-card h3{
-  margin:0 0 9px;
-  font-size:19px;
-  line-height:1.3;
-}
-.achievement-card p{
-  margin:0;
-  color:var(--ink-soft);
-  line-height:1.65;
-  font-size:.92rem;
-}
-.achievement-meta{
-  margin-top:15px;
-  font-family:'IBM Plex Mono',monospace;
-  font-size:11px;
-  opacity:.75;
-}
-@media(max-width:900px){
-  .achievement-grid{grid-template-columns:1fr 1fr;}
-}
-@media(max-width:620px){
-  .achievement-grid{grid-template-columns:1fr;}
-}
-
 </style>
 </head>
 
@@ -1218,14 +1035,9 @@ footer span{
 
       <a href="#skills">Skills</a>
 
-      <a href="#achievements">Achievements</a>
-
       <a href="#projects">Projects</a>
 
       <a href="#certs">Certifications</a>
-
-      <a href="#resume">Resume</a>
-<a href="#connect">Connect</a>
 
       <a href="#contact">Contact</a>
 
@@ -1349,25 +1161,6 @@ footer span{
         href="#contact"
       >
         Get in touch
-      </a>
-
-
-      <a
-        class="btn btn-resume"
-        href="Amudha_S_Resume.pdf"
-        target="_blank"
-        rel="noopener"
-      >
-        👁 View Resume
-      </a>
-
-
-      <a
-        class="btn btn-resume"
-        href="Amudha_S_Resume.pdf"
-        download="Amudha_S_Resume.pdf"
-      >
-        ↓ Download Resume
       </a>
 
     </div>
@@ -1586,46 +1379,94 @@ footer span{
     </div>
 
 
-    <div class="internship-grid">
+    <div class="tl">
 
-      <article class="internship-card">
-        <div class="internship-number">01 · VLSI</div>
-        <h3>VLSI Internship Training</h3>
-        <div class="internship-company">Tech Vedhu</div>
-        <div class="internship-duration">Aug – Sep 2026 · 1 Month</div>
-        <p>Completed practical VLSI training with exposure to fundamental VLSI concepts, design approaches, and industry-oriented applications.</p>
-        <div class="internship-tags">
-          <span class="internship-tag">VLSI</span>
-          <span class="internship-tag">Digital Design</span>
-          <span class="internship-tag">Industry Exposure</span>
-        </div>
-      </article>
 
-      <article class="internship-card">
-        <div class="internship-number">02 · WEB</div>
-        <h3>Web Technologies Intern</h3>
-        <div class="internship-company">ASKAN Technologies Pvt. Ltd.</div>
-        <div class="internship-duration">Jun 2025 · 1 Month</div>
-        <p>Gained hands-on exposure to web technologies and web development through practical industry-oriented work and learning.</p>
-        <div class="internship-tags">
-          <span class="internship-tag">Web Technologies</span>
-          <span class="internship-tag">Web Development</span>
-          <span class="internship-tag">Practical Training</span>
-        </div>
-      </article>
+      <!-- VLSI -->
 
-      <article class="internship-card">
-        <div class="internship-number">03 · DIGITAL</div>
-        <h3>Digital Marketing &amp; Web Development</h3>
-        <div class="internship-company">Internship Training</div>
-        <div class="internship-duration">Jun – Jul 2025</div>
-        <p>Gained practical exposure to digital marketing, web development, and related digital technologies.</p>
-        <div class="internship-tags">
-          <span class="internship-tag">Digital Marketing</span>
-          <span class="internship-tag">Web Development</span>
-          <span class="internship-tag">Digital Technologies</span>
+      <div class="tl-item">
+
+        <div class="tl-title">
+
+          VLSI Course Training
+
         </div>
-      </article>
+
+
+        <div class="tl-meta">
+
+          Tech Vedhu · Aug – Sep 2026
+
+        </div>
+
+
+        <div class="tl-body">
+
+          Completed a VLSI course covering fundamental VLSI
+          concepts and practical exposure to VLSI technologies.
+
+        </div>
+
+      </div>
+
+
+
+      <!-- WEB -->
+
+      <div class="tl-item">
+
+        <div class="tl-title">
+
+          Web Technologies Intern
+
+        </div>
+
+
+        <div class="tl-meta">
+
+          ASKAN Technologies Pvt. Ltd. · Jun 2025 · 1 month
+
+        </div>
+
+
+        <div class="tl-body">
+
+          Hands-on exposure to web technologies and
+          web development in a practical industry setting.
+
+        </div>
+
+      </div>
+
+
+
+      <!-- DIGITAL MARKETING -->
+
+      <div class="tl-item">
+
+        <div class="tl-title">
+
+          Digital Marketing &amp; Web Development Intern
+
+        </div>
+
+
+        <div class="tl-meta">
+
+          Jun – Jul 2025
+
+        </div>
+
+
+        <div class="tl-body">
+
+          Practical exposure to digital marketing,
+          web development, and related digital technologies.
+
+        </div>
+
+      </div>
+
 
     </div>
 
@@ -1647,55 +1488,171 @@ footer span{
   <div class="wrap">
 
     <div class="sec-head">
-      <div class="sec-tag">// 04 — skills</div>
-      <h2>Technical Skills</h2>
-      <p class="lede" style="margin-top:10px; max-width:760px;">
-        A growing technical toolkit across ECE, software development, developer tools, and modern AI-assisted workflows, with a strong interest in IT-sector opportunities.
-      </p>
+
+      <div class="sec-tag">
+        // 04 — skills
+      </div>
+
+      <h2>
+        What I work with
+      </h2>
+
     </div>
+
 
     <div class="skill-grid">
 
-      <div class="skill-card">
-        <h3>Programming</h3>
-        <div class="tags">
-          <span class="tag">C</span>
-          <span class="tag">Python</span>
-          <span class="tag">Verilog HDL</span>
-        </div>
-      </div>
+
+      <!-- PROGRAMMING -->
 
       <div class="skill-card">
-        <h3>Embedded Systems</h3>
+
+        <h3>
+          Programming
+        </h3>
+
         <div class="tags">
-          <span class="tag">Arduino</span>
-          <span class="tag">ESP8266</span>
-          <span class="tag">ESP32</span>
+
+          <span class="tag">
+            C
+          </span>
+
+          <span class="tag">
+            Python
+          </span>
+
+          <span class="tag">
+            Verilog HDL
+          </span>
+
         </div>
+
       </div>
 
-      <div class="skill-card">
-        <h3>Core ECE</h3>
-        <div class="tags">
-          <span class="tag">Digital Electronics</span>
-          <span class="tag">Analog Electronics</span>
-          <span class="tag">Communication Systems</span>
-          <span class="tag">Microprocessors &amp; Microcontrollers</span>
-        </div>
-      </div>
+
+
+      <!-- EMBEDDED -->
 
       <div class="skill-card">
-        <h3>Developer Tools</h3>
+
+        <h3>
+          Embedded Systems
+        </h3>
+
+        <div class="tags">
+
+          <span class="tag">
+            Arduino
+          </span>
+
+          <span class="tag">
+            ESP8266
+          </span>
+
+          <span class="tag">
+            ESP32
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- CORE ECE -->
+
+      <div class="skill-card">
+
+        <h3>
+          Core ECE
+        </h3>
+
+        <div class="tags">
+
+          <span class="tag">
+            Digital Electronics
+          </span>
+
+          <span class="tag">
+            Analog Electronics
+          </span>
+
+          <span class="tag">
+            Communication Systems
+          </span>
+
+          <span class="tag">
+            Microprocessors &amp; Microcontrollers
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- TOOLS -->
+
+      <div class="skill-card">
+
+        <h3>
+          Tools &amp; Software
+        </h3>
+
+        <div class="tags">
+
+          <span class="tag">
+            MATLAB
+          </span>
+
+          <span class="tag">
+            Arduino IDE
+          </span>
+
+          <span class="tag">
+            Proteus
+          </span>
+
+          <span class="tag">
+            MS Office
+          </span>
+
+          <span class="tag">
+            Google Workspace
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- DEVELOPER TOOLS -->
+
+      <div class="skill-card">
+
+        <h3>
+          Developer Tools
+        </h3>
+
         <div class="tags">
           <span class="tag">Git</span>
           <span class="tag">GitHub</span>
           <span class="tag">VS Code</span>
           <span class="tag">GitHub Pages</span>
         </div>
+
       </div>
 
+
+      <!-- AI TOOLS -->
+
       <div class="skill-card">
-        <h3>AI Tools</h3>
+
+        <h3>
+          AI Tools
+        </h3>
+
         <div class="tags">
           <span class="tag">ChatGPT</span>
           <span class="tag">GitHub Copilot</span>
@@ -1703,115 +1660,79 @@ footer span{
           <span class="tag">Google Gemini</span>
           <span class="tag">Cursor</span>
         </div>
+
       </div>
 
-      <div class="skill-card">
-        <h3>Engineering Tools</h3>
-        <div class="tags">
-          <span class="tag">MATLAB</span>
-          <span class="tag">Arduino IDE</span>
-          <span class="tag">Proteus</span>
-          <span class="tag">MS Office</span>
-          <span class="tag">Google Workspace</span>
-        </div>
-      </div>
+
+      <!-- SOFT SKILLS -->
 
       <div class="skill-card">
-        <h3>Soft Skills</h3>
+
+        <h3>
+          Soft Skills
+        </h3>
+
         <div class="tags">
-          <span class="tag">Communication</span>
-          <span class="tag">Teamwork</span>
-          <span class="tag">Problem Solving</span>
-          <span class="tag">Time Management</span>
-          <span class="tag">Leadership</span>
-          <span class="tag">Adaptability</span>
+
+          <span class="tag">
+            Communication
+          </span>
+
+          <span class="tag">
+            Teamwork
+          </span>
+
+          <span class="tag">
+            Problem Solving
+          </span>
+
+          <span class="tag">
+            Time Management
+          </span>
+
+          <span class="tag">
+            Leadership
+          </span>
+
+          <span class="tag">
+            Adaptability
+          </span>
+
         </div>
+
       </div>
 
+
+
+      <!-- LANGUAGES -->
+
       <div class="skill-card">
-        <h3>Languages</h3>
+
+        <h3>
+          Languages
+        </h3>
+
         <div class="tags">
-          <span class="tag">Tamil — Native</span>
-          <span class="tag">English — Professional</span>
+
+          <span class="tag">
+            Tamil — Native
+          </span>
+
+          <span class="tag">
+            English — Professional
+          </span>
+
         </div>
+
       </div>
+
 
     </div>
+
   </div>
+
 </section>
 
-
-
-
-<!-- =========================
-     ACHIEVEMENTS
-========================= -->
-
-<section class="alt" id="achievements">
-
-  <div class="wrap">
-
-    <div class="sec-head">
-      <div class="sec-tag">// 05 — achievements</div>
-      <h2>Achievements &amp; Highlights</h2>
-      <p class="lede" style="margin-top:10px; max-width:760px;">
-        Selected learning milestones, technical activities, and career-focused achievements.
-      </p>
-    </div>
-
-    <div class="achievement-grid">
-
-      <article class="achievement-card">
-        <div class="achievement-icon">🏆</div>
-        <div class="achievement-label">NPTEL · 2026</div>
-        <h3>Industry 4.0 &amp; Industrial IoT</h3>
-        <p>Completed the NPTEL course on Introduction to Industry 4.0 and Industrial Internet of Things from IIT Kharagpur.</p>
-        <div class="achievement-meta">Score: 76% · IIT Kharagpur</div>
-      </article>
-
-      <article class="achievement-card">
-        <div class="achievement-icon">💡</div>
-        <div class="achievement-label">HACKATHON · 2026</div>
-        <h3>SIH Internal Hackathon</h3>
-        <p>Participated in the Smart India Hackathon internal-level activity, gaining experience in problem solving, teamwork, and idea development.</p>
-        <div class="achievement-meta">Internal Hackathon · 2026</div>
-      </article>
-
-      <article class="achievement-card">
-        <div class="achievement-icon">🎯</div>
-        <div class="achievement-label">P2E · 2026</div>
-        <h3>Communication Skills</h3>
-        <p>Completed the Passport to Earning Communication Skills learning program.</p>
-        <div class="achievement-meta">Score: 100% · YuWaah / UNICEF</div>
-      </article>
-
-      <article class="achievement-card">
-        <div class="achievement-icon">🚀</div>
-        <div class="achievement-label">P2E · 2026</div>
-        <h3>Job Ready</h3>
-        <p>Completed the Passport to Earning job-readiness learning program.</p>
-        <div class="achievement-meta">Score: 75% · YuWaah / UNICEF</div>
-      </article>
-
-      <article class="achievement-card">
-        <div class="achievement-icon">🔧</div>
-        <div class="achievement-label">NIELIT · 2026</div>
-        <h3>Embedded for Beginners</h3>
-        <p>Completed the NIELIT Calicut Embedded for Beginners program and strengthened foundational embedded-systems knowledge.</p>
-        <div class="achievement-meta">Certificate of Participation · 2026</div>
-      </article>
-
-      <article class="achievement-card">
-        <div class="achievement-icon">💻</div>
-        <div class="achievement-label">PROGRAMS &amp; WORKSHOPS</div>
-        <h3>Technical Learning</h3>
-        <p>Completed Core Java Programming as a value-added programme and participated in an Art of Communication Workshop at Adhiparasakthi Engineering College.</p>
-        <div class="achievement-meta">College Technical &amp; Skill Development</div>
-      </article>
-
-    </div>
-  </div>
-</section>
 
 
 <!-- =========================
@@ -1896,6 +1817,49 @@ footer span{
 
     </div>
 
+
+    <!-- PROJECT 02 -->
+
+    <div class="chip-card project">
+
+      <div class="project-head">
+
+        <div class="project-title">
+          Multilingual Cooperative Governance &amp; Legal Assistance Chatbot
+        </div>
+
+        <div class="project-index">
+          02
+        </div>
+
+      </div>
+
+      <p class="project-desc">
+        An AI-powered multilingual chatbot designed to help cooperative
+        members, farmers, and rural stakeholders understand cooperative
+        laws, PACS services, and government schemes through regional-language
+        guidance. The solution combines multilingual NLP, voice assistance,
+        legal RAG, document automation, and an ESP32-S3 based hardware concept.
+      </p>
+
+      <div class="tags">
+        <span class="tag">AI</span>
+        <span class="tag">NLP</span>
+        <span class="tag">RAG</span>
+        <span class="tag">STT / TTS</span>
+        <span class="tag">ESP32-S3</span>
+        <span class="tag">IoT</span>
+        <span class="tag">Multilingual Chatbot</span>
+        <span class="tag">Document Automation</span>
+      </div>
+
+      <p class="project-desc" style="margin-top:14px;margin-bottom:0;">
+        <strong>Smart India Hackathon 2026</strong> · Problem Statement ID: SIH26088
+        · Team: NexGen Minds
+      </p>
+
+    </div>
+
   </div>
 
 </section>
@@ -1940,110 +1904,368 @@ footer span{
 
     <div class="cert-grid">
 
-      <!-- CERTIFICATE 01 -->
-      <div class="cert-card">
-        <img src="certificates/file_00000000fb3c81fbab637aa443b8fbf7.jpg"
-             alt="VLSI Course Completion Certificate"
-             class="cert-image">
+
+      <!-- =====================
+           CERTIFICATE 01
+      ====================== -->
+
+      <div
+        class="cert-card"
+        onclick="openCertificate('certificates/IMG-20260812-WA0000.jpg')"
+      >
+
+        <img
+          src="certificates/IMG-20260812-WA0000.jpg"
+          alt="VLSI Course Completion Certificate"
+          class="cert-image"
+        >
+
+
         <div class="cert-info">
-          <div class="cert-title">VLSI Course Completion</div>
-          <div class="cert-issuer">Tech Vedhu</div>
-          <div class="cert-detail">06 Aug – 07 Sep 2026 · Certificate issued 08 Sep 2026</div>
-          <div class="cert-view">
-            <a class="view-certificate" href="#certificatePopup" onclick="showCertificate('certificates/file_00000000fb3c81fbab637aa443b8fbf7.jpg'); return false;">View Certificate →</a>
+
+          <div class="cert-title">
+
+            VLSI Course Completion
+
           </div>
+
+
+          <div class="cert-issuer">
+
+            Tech Vedhu
+
+          </div>
+
+
+          <div class="cert-detail">
+
+            06 Aug – 07 Sep 2026 ·
+            Certificate issued 08 Sep 2026
+
+          </div>
+
+
+          <div class="cert-view">
+
+            <a class="cert-direct-link" href="certificates/IMG-20260812-WA0000.jpg" target="_blank" rel="noopener">View Certificate →</a>
+
+          </div>
+
         </div>
+
       </div>
 
-      <!-- CERTIFICATE 02 -->
-      <div class="cert-card">
-        <img src="certificates/amudha_nptel.png"
-             alt="NPTEL Industry 4.0 and Industrial IoT Certificate"
-             class="cert-image">
+
+
+      <!-- =====================
+           CERTIFICATE 02
+      ====================== -->
+
+      <div
+        class="cert-card"
+        onclick="openCertificate('certificates/amudha_nptel.png')"
+      >
+
+        <img
+          src="certificates/amudha_nptel.png"
+          alt="NPTEL Industry 4.0 and Industrial IoT Certificate"
+          class="cert-image"
+        >
+
+
         <div class="cert-info">
-          <div class="cert-title">Introduction to Industry 4.0 and Industrial Internet of Things</div>
-          <div class="cert-issuer">NPTEL · IIT Kharagpur</div>
-          <div class="cert-detail">Score: 76% · Jan–Apr 2026 · 12-week course</div>
-          <div class="cert-view">
-            <a class="view-certificate" href="#certificatePopup" onclick="showCertificate('certificates/amudha_nptel.png'); return false;">View Certificate →</a>
+
+          <div class="cert-title">
+
+            Introduction to Industry 4.0 and
+            Industrial Internet of Things
+
           </div>
+
+
+          <div class="cert-issuer">
+
+            NPTEL · IIT Kharagpur
+
+          </div>
+
+
+          <div class="cert-detail">
+
+            Score: 76% · Jan–Apr 2026 ·
+            12-week course
+
+          </div>
+
+
+          <div class="cert-view">
+
+            <a class="cert-direct-link" href="certificates/amudha_nptel.png" target="_blank" rel="noopener">View Certificate →</a>
+
+          </div>
+
         </div>
+
       </div>
 
-      <!-- CERTIFICATE 03 -->
-      <div class="cert-card">
-        <img src="certificates/IMG-20260812-WA0000.jpg"
-             alt="Passport to Earning Communication Skills Certificate"
-             class="cert-image">
+
+
+      <!-- =====================
+           CERTIFICATE 03
+      ====================== -->
+
+      <div
+        class="cert-card"
+        onclick="openCertificate('certificates/amudhasriramu_page1.jpg')"
+      >
+
+        <img
+          src="certificates/amudhasriramu_page1.jpg"
+          alt="Passport to Earning Communication Skills Certificate"
+          class="cert-image"
+        >
+
+
         <div class="cert-info">
-          <div class="cert-title">Communication Skills</div>
-          <div class="cert-issuer">Passport to Earning · YuWaah / UNICEF</div>
-          <div class="cert-detail">Score: 100% · 09 Aug 2026</div>
-          <div class="cert-view">
-            <a class="view-certificate" href="#certificatePopup" onclick="showCertificate('certificates/IMG-20260812-WA0000.jpg'); return false;">View Certificate →</a>
+
+          <div class="cert-title">
+
+            Communication Skills
+
           </div>
+
+
+          <div class="cert-issuer">
+
+            Passport to Earning · YuWaah / UNICEF
+
+          </div>
+
+
+          <div class="cert-detail">
+
+            Score: 100% · 09 Aug 2026
+
+          </div>
+
+
+          <div class="cert-view">
+
+            <a class="cert-direct-link" href="certificates/amudhasriramu_page1.jpg" target="_blank" rel="noopener">View Certificate →</a>
+
+          </div>
+
         </div>
+
       </div>
 
-      <!-- CERTIFICATE 04 -->
-      <div class="cert-card">
-        <img src="certificates/image.png"
-             alt="NIELIT Certificate of Participation"
-             class="cert-image">
+
+
+      <!-- =====================
+           CERTIFICATE 04
+      ====================== -->
+
+      <div
+        class="cert-card"
+        onclick="openCertificate('certificates/DOC-20260731-WA0004-1.jpg')"
+      >
+
+        <img
+          src="certificates/DOC-20260731-WA0004-1.jpg"
+          alt="NIELIT Embedded for Beginners Certificate"
+          class="cert-image"
+        >
+
+
         <div class="cert-info">
-          <div class="cert-title">Embedded for Beginners</div>
-          <div class="cert-issuer">NIELIT</div>
-          <div class="cert-detail">Certificate of Participation</div>
-          <div class="cert-view">
-            <a class="view-certificate" href="#certificatePopup" onclick="showCertificate('certificates/image.png'); return false;">View Certificate →</a>
+
+          <div class="cert-title">
+
+            Embedded for Beginners
+
           </div>
+
+
+          <div class="cert-issuer">
+
+            NIELIT Calicut
+
+          </div>
+
+
+          <div class="cert-detail">
+
+            Certificate of Participation ·
+            10–14 Mar 2026
+
+          </div>
+
+
+          <div class="cert-view">
+
+            <a class="cert-direct-link" href="certificates/DOC-20260731-WA0004-1.jpg" target="_blank" rel="noopener">View Certificate →</a>
+
+          </div>
+
         </div>
+
       </div>
 
-      <!-- CERTIFICATE 05 -->
-      <div class="cert-card">
-        <img src="certificates/amudhasriramu_page1.jpg"
-             alt="NPTEL Participation Certificate"
-             class="cert-image">
+
+
+      <!-- =====================
+           CERTIFICATE 05
+      ====================== -->
+
+      <div
+        class="cert-card"
+        onclick="openCertificate('certificates/a28b5853c00b64f8704e697be686976fe48c645d3a340fb6975ba857b4d44cf7.png')"
+      >
+
+        <img
+          src="certificates/a28b5853c00b64f8704e697be686976fe48c645d3a340fb6975ba857b4d44cf7.png"
+          alt="NPTEL Interview Readiness Certificate"
+          class="cert-image"
+        >
+
+
         <div class="cert-info">
-          <div class="cert-title">NPTEL Participation Certificate</div>
-          <div class="cert-issuer">NPTEL</div>
-          <div class="cert-detail">Participation Certificate</div>
-          <div class="cert-view">
-            <a class="view-certificate" href="#certificatePopup" onclick="showCertificate('certificates/amudhasriramu_page1.jpg'); return false;">View Certificate →</a>
+
+          <div class="cert-title">
+
+            Online Soft Skills Training
+            on Interview Readiness
+
           </div>
+
+
+          <div class="cert-issuer">
+
+            NPTEL
+
+          </div>
+
+
+          <div class="cert-detail">
+
+            20 Hours · 09–25 Feb 2026
+
+          </div>
+
+
+          <div class="cert-view">
+
+            <a class="cert-direct-link" href="certificates/a28b5853c00b64f8704e697be686976fe48c645d3a340fb6975ba857b4d44cf7.png" target="_blank" rel="noopener">View Certificate →</a>
+
+          </div>
+
         </div>
+
       </div>
 
-      <!-- CERTIFICATE 06 -->
-      <div class="cert-card">
-        <img src="certificates/a28b5853c00b64f8704e697be686976fe48c645d3a340fb6975ba857b4d44cf7.png"
-             alt="SIH Internal Hackathon 2026 Certificate"
-             class="cert-image">
+
+
+      <!-- =====================
+           CERTIFICATE 06
+      ====================== -->
+
+      <div
+        class="cert-card"
+        onclick="openCertificate('certificates/file_00000000fb3c81fbab637aa443b8fbf7.jpg')"
+      >
+
+        <img
+          src="certificates/file_00000000fb3c81fbab637aa443b8fbf7.jpg"
+          alt="SIH Internal Hackathon 2026 Certificate"
+          class="cert-image"
+        >
+
+
         <div class="cert-info">
-          <div class="cert-title">SIH Internal Hackathon 2026</div>
-          <div class="cert-issuer">Adhiparasakthi Engineering College</div>
-          <div class="cert-detail">Certificate of Appreciation · Shortlisted · 02 Sep 2026</div>
-          <div class="cert-view">
-            <a class="view-certificate" href="#certificatePopup" onclick="showCertificate('certificates/a28b5853c00b64f8704e697be686976fe48c645d3a340fb6975ba857b4d44cf7.png'); return false;">View Certificate →</a>
+
+          <div class="cert-title">
+
+            SIH Internal Hackathon 2026
+
           </div>
+
+
+          <div class="cert-issuer">
+
+            Adhiparasakthi Engineering College
+
+          </div>
+
+
+          <div class="cert-detail">
+
+            Certificate of Appreciation ·
+            Shortlisted · 02 Sep 2026
+
+          </div>
+
+
+          <div class="cert-view">
+
+            <a class="cert-direct-link" href="certificates/file_00000000fb3c81fbab637aa443b8fbf7.jpg" target="_blank" rel="noopener">View Achievement →</a>
+
+          </div>
+
         </div>
+
       </div>
 
-      <!-- CERTIFICATE 07 -->
-      <div class="cert-card">
-        <img src="certificates/DOC-20260731-WA0004-1.jpg"
-             alt="Passport to Earning Bano Job Ready Certificate"
-             class="cert-image">
+
+
+      <!-- =====================
+           CERTIFICATE 07
+      ====================== -->
+
+      <div
+        class="cert-card"
+        onclick="openCertificate('certificates/image.png')"
+      >
+
+        <img
+          src="certificates/image.png"
+          alt="Passport to Earning Bano Job Ready Certificate"
+          class="cert-image"
+        >
+
+
         <div class="cert-info">
-          <div class="cert-title">Bano Job Ready</div>
-          <div class="cert-issuer">Passport to Earning · YuWaah / UNICEF</div>
-          <div class="cert-detail">Score: 75% · 31 Jul 2026</div>
-          <div class="cert-view">
-            <a class="view-certificate" href="#certificatePopup" onclick="showCertificate('certificates/DOC-20260731-WA0004-1.jpg'); return false;">View Certificate →</a>
+
+          <div class="cert-title">
+
+            Bano Job Ready
+
           </div>
+
+
+          <div class="cert-issuer">
+
+            Passport to Earning · YuWaah / UNICEF
+
+          </div>
+
+
+          <div class="cert-detail">
+
+            Score: 75% · 31 Jul 2026
+
+          </div>
+
+
+          <div class="cert-view">
+
+            <a class="cert-direct-link" href="certificates/image.png" target="_blank" rel="noopener">View Certificate →</a>
+
+          </div>
+
         </div>
+
       </div>
+
 
     </div>
 
@@ -2054,60 +2276,38 @@ footer span{
 
 
 <!-- =========================
-     RESUME
+     CERTIFICATE MODAL
 ========================= -->
 
-<section class="resume-section" id="resume">
+<div
+  class="cert-modal"
+  id="certificateModal"
+>
 
-  <div class="wrap">
+  <div class="cert-modal-content">
 
-    <div class="sec-head">
 
-      <div class="sec-tag">
-        // 07 — resume
-      </div>
+    <span
+      class="cert-close"
+      onclick="closeCertificate()"
+      aria-label="Close certificate"
+    >
+      &times;
+    </span>
 
-      <h2>
-        My Resume
-      </h2>
 
-      <p class="lede">
-        View my latest resume online or download a copy for internship and entry-level opportunities.
-      </p>
-
-    </div>
-
-    <div class="resume-card">
-
-      <div>
-        <div class="resume-title">Amudha S — ECE Student</div>
-        <div class="resume-text">Embedded Systems · VLSI · IoT · Electronics</div>
-      </div>
-
-      <div class="resume-actions">
-        <a class="btn btn-primary" href="Amudha_S_Resume.pdf" target="_blank" rel="noopener">
-          👁 View Resume
-        </a>
-
-        <a class="btn btn-ghost resume-download" href="Amudha_S_Resume.pdf" download="Amudha_S_Resume.pdf">
-          ↓ Download Resume
-        </a>
-      </div>
-
-    </div>
+    <img
+      id="certificateModalImage"
+      class="cert-modal-image"
+      src=""
+      alt="Certificate Preview"
+    >
 
   </div>
 
-</section>
-
-
-<!-- =========================
-     CERTIFICATE IMAGE POPUP
-========================= -->
-<div class="certificate-popup" id="certificatePopup" aria-hidden="true">
-  <button class="certificate-close" type="button" onclick="closeCertificate()" aria-label="Close certificate">&times;</button>
-  <img id="popupCertificateImage" class="certificate-popup-image" src="" alt="Certificate">
 </div>
+
+
 
 <!-- =========================
      CONTACT
@@ -2190,6 +2390,47 @@ footer span{
       </a>
 
 
+      <!-- GITHUB -->
+
+      <a
+        class="clink"
+        href="https://github.com/amudha9797"
+        target="_blank"
+        rel="noopener"
+      >
+
+        GitHub
+
+      </a>
+
+
+      <!-- PORTFOLIO -->
+
+      <a
+        class="clink"
+        href="https://amudha9797.github.io/Portfolio/"
+        target="_blank"
+        rel="noopener"
+      >
+
+        Portfolio
+
+      </a>
+
+
+      <!-- LET'S CONNECT -->
+
+      <a
+        class="btn btn-primary"
+        href="mailto:amudhasriramu@gmail.com?subject=Portfolio%20Contact"
+        style="margin-top:8px;"
+      >
+
+        Let’s Connect →
+
+      </a>
+
+
     </div>
 
   </div>
@@ -2202,37 +2443,6 @@ footer span{
      FOOTER
 ========================= -->
 
-
-<section id="connect" class="section">
-  <div class="container">
-    <div class="section-title">
-      <span>CONNECT WITH ME</span>
-      <h2>Let's Connect</h2>
-    </div>
-    <div class="cards-grid">
-      <a class="card" href="https://github.com/amudha9797" target="_blank" rel="noopener noreferrer">
-        <h3>💻 GitHub</h3>
-        <p>View my projects, code and development work.</p>
-        <strong>View Profile →</strong>
-      </a>
-      <a class="card" href="https://linkedin.com/in/amudha-s-004496387" target="_blank" rel="noopener noreferrer">
-        <h3>🔗 LinkedIn</h3>
-        <p>Connect with me and view my professional profile.</p>
-        <strong>View Profile →</strong>
-      </a>
-      <a class="card" href="https://amudha9797.github.io/Portfolio/" target="_blank" rel="noopener noreferrer">
-        <h3>🌐 Portfolio</h3>
-        <p>Explore my complete portfolio and technical work.</p>
-        <strong>Visit Website →</strong>
-      </a>
-      <a class="card" href="mailto:amudhasriramu@gmail.com">
-        <h3>✉️ Email Me</h3>
-        <p>For opportunities, collaboration and professional contact.</p>
-        <strong>Send Email →</strong>
-      </a>
-    </div>
-  </div>
-</section>
 <footer>
 
   © 2026 Amudha S
@@ -2250,55 +2460,94 @@ footer span{
 ========================= -->
 
 <script>
-function showCertificate(imagePath){
-  const popup = document.getElementById("certificatePopup");
-  const image = document.getElementById("popupCertificateImage");
 
-  if(!popup || !image) return;
+/*
+  OPEN CERTIFICATE
+*/
 
-  image.src = new URL(imagePath, document.baseURI).href;
-  popup.classList.add("show");
-  popup.setAttribute("aria-hidden", "false");
+function openCertificate(imagePath){
+
+  const modal = document.getElementById("certificateModal");
+  const image = document.getElementById("certificateModalImage");
+
+  if(!modal || !image) return;
+
+  // Resolve the certificate path relative to the current GitHub Pages page.
+  const certificateUrl = new URL(imagePath, document.baseURI).href;
+
+  image.alt = "Certificate Preview";
+  image.src = certificateUrl;
+  modal.classList.add("active");
   document.body.style.overflow = "hidden";
 }
 
+
+
+/*
+  CLOSE CERTIFICATE
+*/
+
 function closeCertificate(){
-  const popup = document.getElementById("certificatePopup");
-  const image = document.getElementById("popupCertificateImage");
 
-  if(!popup) return;
+  const modal =
+    document.getElementById("certificateModal");
 
-  popup.classList.remove("show");
-  popup.setAttribute("aria-hidden", "true");
+  const image =
+    document.getElementById("certificateModalImage");
 
-  if(image) image.src = "";
+
+  modal.classList.remove("active");
+
+
+  image.src = "";
+
 
   document.body.style.overflow = "";
 }
 
-document.getElementById("certificatePopup")?.addEventListener("click", function(event){
-  if(event.target === this){
-    closeCertificate();
+
+
+/*
+  CLOSE WHEN CLICKING OUTSIDE
+*/
+
+document
+  .getElementById("certificateModal")
+  .addEventListener(
+    "click",
+    function(event){
+
+      if(event.target === this){
+
+        closeCertificate();
+
+      }
+
+    }
+  );
+
+
+
+/*
+  CLOSE WITH ESC KEY
+*/
+
+document.addEventListener(
+  "keydown",
+  function(event){
+
+    if(event.key === "Escape"){
+      closeCertificate();
+    }
+
   }
+);
+
+// If an image cannot be loaded, open the direct file URL in a new tab instead.
+document.getElementById("certificateModalImage").addEventListener("error", function(){
+  this.alt = "Certificate could not be previewed. Use the View Certificate link to open the file.";
 });
 
-document.addEventListener("keydown", function(event){
-  if(event.key === "Escape"){
-    closeCertificate();
-  }
-});
-
-document.getElementById("certificatePopup").addEventListener("click", function(event){
-  if(event.target === this){
-    closeCertificate();
-  }
-});
-
-document.addEventListener("keydown", function(event){
-  if(event.key === "Escape"){
-    closeCertificate();
-  }
-});
 </script>
 
 
