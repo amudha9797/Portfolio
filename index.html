@@ -788,84 +788,74 @@ p.lede{
 
 
 /* =========================
-   CERTIFICATE MODAL
+   CERTIFICATE IMAGE POPUP
 ========================= */
 
-.cert-modal{
+.view-certificate{
+  border:0;
+  background:none;
+  padding:0;
+  margin:0;
+  color:inherit;
+  font:inherit;
+  cursor:pointer;
+  text-decoration:none;
+}
+
+.view-certificate:hover{
+  text-decoration:underline;
+}
+
+.certificate-popup{
   display:none;
-
   position:fixed;
-
-  z-index:100;
-
   inset:0;
-
-  background:rgba(0,0,0,0.88);
-
-  padding:30px;
-
+  z-index:9999;
+  background:rgba(0,0,0,.94);
+  padding:24px;
   align-items:center;
-
   justify-content:center;
 }
 
-.cert-modal.active{
+.certificate-popup.show{
   display:flex;
 }
 
-.cert-modal-content{
-  position:relative;
-
-  max-width:1100px;
-
+.certificate-popup-image{
+  display:block;
+  max-width:96vw;
   max-height:92vh;
-
-  width:100%;
-
-  text-align:center;
-}
-
-.cert-modal-image{
-  max-width:100%;
-
-  max-height:88vh;
-
+  width:auto;
+  height:auto;
   object-fit:contain;
-
-  border-radius:5px;
-
-  background:white;
-
-  box-shadow:
-    0 10px 40px rgba(0,0,0,0.4);
+  background:#fff;
+  border-radius:6px;
+  box-shadow:0 12px 50px rgba(0,0,0,.55);
 }
 
-.cert-close{
+.certificate-close{
   position:absolute;
-
-  top:-42px;
-
-  right:0;
-
-  color:white;
-
-  font-size:34px;
-
-  line-height:1;
-
-  cursor:pointer;
-
+  top:16px;
+  right:22px;
+  z-index:2;
+  width:44px;
+  height:44px;
+  border:0;
+  border-radius:50%;
+  background:rgba(255,255,255,.14);
+  color:#fff;
   font-family:Arial,sans-serif;
-
-  transition:color .2s ease;
+  font-size:34px;
+  line-height:44px;
+  text-align:center;
+  cursor:pointer;
 }
 
-.cert-close:hover{
-  color:var(--gold);
+.certificate-close:hover{
+  background:rgba(255,255,255,.25);
 }
 
 @media (max-width:700px){
-
   .cert-grid{
     grid-template-columns:1fr;
   }
@@ -874,27 +864,24 @@ p.lede{
     height:230px;
   }
 
-  .cert-modal{
-    padding:15px;
+  .certificate-popup{
+    padding:10px;
   }
 
-  .cert-modal-content{
-    max-height:90vh;
+  .certificate-popup-image{
+    max-width:98vw;
+    max-height:86vh;
   }
 
-  .cert-modal-image{
-    max-height:82vh;
-  }
-
-  .cert-close{
-    top:-38px;
-
-    right:3px;
-
+  .certificate-close{
+    top:10px;
+    right:12px;
+    width:40px;
+    height:40px;
+    line-height:40px;
     font-size:30px;
   }
 }
-
 
 /* =========================
    CONTACT
@@ -1001,9 +988,6 @@ footer span{
   }
 }
 
-
-.cert-direct-link{color:inherit;text-decoration:none;cursor:pointer;border:0;background:transparent;padding:0;font:inherit}.cert-direct-link:hover{text-decoration:underline}
-.certificate-viewer{display:none;position:fixed;z-index:9999;inset:0;background:rgba(0,0,0,.96);align-items:center;justify-content:center;padding:70px 20px 25px}.certificate-viewer.active{display:flex}.certificate-viewer-image{max-width:96vw;max-height:86vh;width:auto;height:auto;object-fit:contain;background:#fff;border-radius:8px;box-shadow:0 10px 50px rgba(0,0,0,.55)}.certificate-viewer-close{position:absolute;top:16px;right:22px;width:44px;height:44px;border:0;border-radius:50%;background:rgba(255,255,255,.14);color:#fff;font-size:30px;line-height:44px;cursor:pointer}.certificate-viewer-download{position:absolute;top:18px;left:22px;display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 18px;border-radius:8px;background:#fff;color:#111;text-decoration:none;font-weight:700;cursor:pointer}.certificate-viewer-download:hover{opacity:.88}@media(max-width:600px){.certificate-viewer{padding:70px 8px 18px}.certificate-viewer-image{max-width:98vw;max-height:82vh}.certificate-viewer-close{right:10px}.certificate-viewer-download{left:10px;padding:0 13px}}
 </style>
 </head>
 
@@ -1827,337 +1811,110 @@ footer span{
 
     <div class="cert-grid">
 
-
-      <!-- =====================
-           CERTIFICATE 01
-      ====================== -->
-
-      <div
-        class="cert-card"
-      >
-
-        <img
-          src="certificates/file_00000000fb3c81fbab637aa443b8fbf7.jpg"
-          alt="VLSI Course Completion Certificate"
-          class="cert-image"
-        >
-
-
+      <!-- CERTIFICATE 01 -->
+      <div class="cert-card">
+        <img src="certificates/file_00000000fb3c81fbab637aa443b8fbf7.jpg"
+             alt="VLSI Course Completion Certificate"
+             class="cert-image">
         <div class="cert-info">
-
-          <div class="cert-title">
-
-            VLSI Course Completion
-
-          </div>
-
-
-          <div class="cert-issuer">
-
-            Tech Vedhu
-
-          </div>
-
-
-          <div class="cert-detail">
-
-            06 Aug – 07 Sep 2026 ·
-            Certificate issued 08 Sep 2026
-
-          </div>
-
-
-          <div class="cert-view"><button class="cert-direct-link" type="button" onclick="openCertificateViewer(this.dataset.file)" data-file="certificates/file_00000000fb3c81fbab637aa443b8fbf7.jpg">View Certificate →</button></div>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- =====================
-           CERTIFICATE 02
-      ====================== -->
-
-      <div
-        class="cert-card"
-      >
-
-        <img
-          src="certificates/amudha_nptel.png"
-          alt="NPTEL Industry 4.0 and Industrial IoT Certificate"
-          class="cert-image"
-        >
-
-
-        <div class="cert-info">
-
-          <div class="cert-title">
-
-            Introduction to Industry 4.0 and
-            Industrial Internet of Things
-
-          </div>
-
-
-          <div class="cert-issuer">
-
-            NPTEL · IIT Kharagpur
-
-          </div>
-
-
-          <div class="cert-detail">
-
-            Score: 76% · Jan–Apr 2026 ·
-            12-week course
-
-          </div>
-
-
-          <div class="cert-view"><button class="cert-direct-link" type="button" onclick="openCertificateViewer(this.dataset.file)" data-file="certificates/amudha_nptel.png">View Certificate →</button></div>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- =====================
-           CERTIFICATE 03
-      ====================== -->
-
-      <div
-        class="cert-card"
-      >
-
-        <img
-          src="certificates/IMG-20260812-WA0000.jpg"
-          alt="Passport to Earning Communication Skills Certificate"
-          class="cert-image"
-        >
-
-
-        <div class="cert-info">
-
-          <div class="cert-title">
-
-            Communication Skills
-
-          </div>
-
-
-          <div class="cert-issuer">
-
-            Passport to Earning · YuWaah / UNICEF
-
-          </div>
-
-
-          <div class="cert-detail">
-
-            Score: 100% · 09 Aug 2026
-
-          </div>
-
-
-          <div class="cert-view"><button class="cert-direct-link" type="button" onclick="openCertificateViewer(this.dataset.file)" data-file="certificates/IMG-20260812-WA0000.jpg">View Certificate →</button></div>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- =====================
-           CERTIFICATE 04
-      ====================== -->
-
-      <div
-        class="cert-card"
-      >
-
-        <img
-          src="certificates/image.png"
-          alt="NIELIT Embedded for Beginners Certificate"
-          class="cert-image"
-        >
-
-
-        <div class="cert-info">
-
-          <div class="cert-title">
-
-            Embedded for Beginners
-
-          </div>
-
-
-          <div class="cert-issuer">
-
-            NIELIT Calicut
-
-          </div>
-
-
-          <div class="cert-detail">
-
-            Certificate of Participation ·
-            10–14 Mar 2026
-
-          </div>
-
-
-          <div class="cert-view"><button class="cert-direct-link" type="button" onclick="openCertificateViewer(this.dataset.file)" data-file="certificates/image.png">View Certificate →</button></div>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- =====================
-           CERTIFICATE 05
-      ====================== -->
-
-      <div
-        class="cert-card"
-      >
-
-        <img
-          src="certificates/amudhasriramu_page1.jpg"
-          alt="NPTEL Interview Readiness Certificate"
-          class="cert-image"
-        >
-
-
-        <div class="cert-info">
-
-          <div class="cert-title">
-
-            Online Soft Skills Training
-            on Interview Readiness
-
-          </div>
-
-
-          <div class="cert-issuer">
-
-            NPTEL
-
-          </div>
-
-
-          <div class="cert-detail">
-
-            20 Hours · 09–25 Feb 2026
-
-          </div>
-
-
-          <div class="cert-view"><button class="cert-direct-link" type="button" onclick="openCertificateViewer(this.dataset.file)" data-file="certificates/amudhasriramu_page1.jpg">View Certificate →</button></div>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- =====================
-           CERTIFICATE 06
-      ====================== -->
-
-      <div
-        class="cert-card"
-      >
-
-        <img
-          src="certificates/a28b5853c00b64f8704e697be686976fe48c645d3a340fb6975ba857b4d44cf7.png"
-          alt="SIH Internal Hackathon 2026 Certificate"
-          class="cert-image"
-        >
-
-
-        <div class="cert-info">
-
-          <div class="cert-title">
-
-            SIH Internal Hackathon 2026
-
-          </div>
-
-
-          <div class="cert-issuer">
-
-            Adhiparasakthi Engineering College
-
-          </div>
-
-
-          <div class="cert-detail">
-
-            Certificate of Appreciation ·
-            Shortlisted · 02 Sep 2026
-
-          </div>
-
-
+          <div class="cert-title">VLSI Course Completion</div>
+          <div class="cert-issuer">Tech Vedhu</div>
+          <div class="cert-detail">06 Aug – 07 Sep 2026 · Certificate issued 08 Sep 2026</div>
           <div class="cert-view">
-
-            <button class="cert-direct-link" type="button" onclick="openCertificateViewer(this.dataset.file)" data-file="certificates/a28b5853c00b64f8704e697be686976fe48c645d3a340fb6975ba857b4d44cf7.png">View Certificate →</button>
-
+            <a class="view-certificate" href="#certificatePopup" onclick="showCertificate('certificates/file_00000000fb3c81fbab637aa443b8fbf7.jpg'); return false;">View Certificate →</a>
           </div>
-
         </div>
-
       </div>
 
-
-
-      <!-- =====================
-           CERTIFICATE 07
-      ====================== -->
-
-      <div
-        class="cert-card"
-      >
-
-        <img
-          src="certificates/DOC-20260731-WA0004-1.jpg"
-          alt="Passport to Earning Bano Job Ready Certificate"
-          class="cert-image"
-        >
-
-
+      <!-- CERTIFICATE 02 -->
+      <div class="cert-card">
+        <img src="certificates/amudha_nptel.png"
+             alt="NPTEL Industry 4.0 and Industrial IoT Certificate"
+             class="cert-image">
         <div class="cert-info">
-
-          <div class="cert-title">
-
-            Bano Job Ready
-
+          <div class="cert-title">Introduction to Industry 4.0 and Industrial Internet of Things</div>
+          <div class="cert-issuer">NPTEL · IIT Kharagpur</div>
+          <div class="cert-detail">Score: 76% · Jan–Apr 2026 · 12-week course</div>
+          <div class="cert-view">
+            <a class="view-certificate" href="#certificatePopup" onclick="showCertificate('certificates/amudha_nptel.png'); return false;">View Certificate →</a>
           </div>
-
-
-          <div class="cert-issuer">
-
-            Passport to Earning · YuWaah / UNICEF
-
-          </div>
-
-
-          <div class="cert-detail">
-
-            Score: 75% · 31 Jul 2026
-
-          </div>
-
-
-          <div class="cert-view"><button class="cert-direct-link" type="button" onclick="openCertificateViewer(this.dataset.file)" data-file="certificates/DOC-20260731-WA0004-1.jpg">View Certificate →</button></div>
-
         </div>
-
       </div>
 
+      <!-- CERTIFICATE 03 -->
+      <div class="cert-card">
+        <img src="certificates/IMG-20260812-WA0000.jpg"
+             alt="Passport to Earning Communication Skills Certificate"
+             class="cert-image">
+        <div class="cert-info">
+          <div class="cert-title">Communication Skills</div>
+          <div class="cert-issuer">Passport to Earning · YuWaah / UNICEF</div>
+          <div class="cert-detail">Score: 100% · 09 Aug 2026</div>
+          <div class="cert-view">
+            <a class="view-certificate" href="#certificatePopup" onclick="showCertificate('certificates/IMG-20260812-WA0000.jpg'); return false;">View Certificate →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CERTIFICATE 04 -->
+      <div class="cert-card">
+        <img src="certificates/image.png"
+             alt="NIELIT Certificate of Participation"
+             class="cert-image">
+        <div class="cert-info">
+          <div class="cert-title">Embedded for Beginners</div>
+          <div class="cert-issuer">NIELIT</div>
+          <div class="cert-detail">Certificate of Participation</div>
+          <div class="cert-view">
+            <a class="view-certificate" href="#certificatePopup" onclick="showCertificate('certificates/image.png'); return false;">View Certificate →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CERTIFICATE 05 -->
+      <div class="cert-card">
+        <img src="certificates/amudhasriramu_page1.jpg"
+             alt="NPTEL Participation Certificate"
+             class="cert-image">
+        <div class="cert-info">
+          <div class="cert-title">NPTEL Participation Certificate</div>
+          <div class="cert-issuer">NPTEL</div>
+          <div class="cert-detail">Participation Certificate</div>
+          <div class="cert-view">
+            <a class="view-certificate" href="#certificatePopup" onclick="showCertificate('certificates/amudhasriramu_page1.jpg'); return false;">View Certificate →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CERTIFICATE 06 -->
+      <div class="cert-card">
+        <img src="certificates/a28b5853c00b64f8704e697be686976fe48c645d3a340fb6975ba857b4d44cf7.png"
+             alt="SIH Internal Hackathon 2026 Certificate"
+             class="cert-image">
+        <div class="cert-info">
+          <div class="cert-title">SIH Internal Hackathon 2026</div>
+          <div class="cert-issuer">Adhiparasakthi Engineering College</div>
+          <div class="cert-detail">Certificate of Appreciation · Shortlisted · 02 Sep 2026</div>
+          <div class="cert-view">
+            <a class="view-certificate" href="#certificatePopup" onclick="showCertificate('certificates/a28b5853c00b64f8704e697be686976fe48c645d3a340fb6975ba857b4d44cf7.png'); return false;">View Certificate →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CERTIFICATE 07 -->
+      <div class="cert-card">
+        <img src="certificates/DOC-20260731-WA0004-1.jpg"
+             alt="Passport to Earning Bano Job Ready Certificate"
+             class="cert-image">
+        <div class="cert-info">
+          <div class="cert-title">Bano Job Ready</div>
+          <div class="cert-issuer">Passport to Earning · YuWaah / UNICEF</div>
+          <div class="cert-detail">Score: 75% · 31 Jul 2026</div>
+          <div class="cert-view">
+            <a class="view-certificate" href="#certificatePopup" onclick="showCertificate('certificates/DOC-20260731-WA0004-1.jpg'); return false;">View Certificate →</a>
+          </div>
+        </div>
+      </div>
 
     </div>
 
@@ -2167,15 +1924,12 @@ footer span{
 
 
 
-
-
-
-
-<!-- FULL-SCREEN CERTIFICATE VIEWER -->
-<div class="certificate-viewer" id="certificateViewer" aria-hidden="true">
-<a class="certificate-viewer-download" id="certificateDownload" href="#" download>Download Certificate ↓</a>
-<button class="certificate-viewer-close" type="button" onclick="closeCertificateViewer()" aria-label="Close certificate">&times;</button>
-<img class="certificate-viewer-image" id="certificateViewerImage" src="" alt="Certificate">
+<!-- =========================
+     CERTIFICATE IMAGE POPUP
+========================= -->
+<div class="certificate-popup" id="certificatePopup" aria-hidden="true">
+  <button class="certificate-close" type="button" onclick="closeCertificate()" aria-label="Close certificate">&times;</button>
+  <img id="popupCertificateImage" class="certificate-popup-image" src="" alt="Certificate">
 </div>
 
 <!-- =========================
@@ -2288,53 +2042,57 @@ footer span{
 ========================= -->
 
 <script>
-function openCertificateViewer(imagePath){
-  const viewer = document.getElementById("certificateViewer");
-  const image = document.getElementById("certificateViewerImage");
-  const download = document.getElementById("certificateDownload");
+function showCertificate(imagePath){
+  const popup = document.getElementById("certificatePopup");
+  const image = document.getElementById("popupCertificateImage");
 
-  if (!viewer || !image || !download) return;
+  if(!popup || !image) return;
 
-  const certificateUrl = new URL(imagePath, document.baseURI).href;
-  const fileName = imagePath.split("/").pop();
-
-  image.src = certificateUrl;
-  image.alt = "Certificate - " + fileName;
-  download.href = certificateUrl;
-  download.download = fileName;
-
-  viewer.classList.add("active");
-  viewer.setAttribute("aria-hidden", "false");
+  image.src = new URL(imagePath, document.baseURI).href;
+  popup.classList.add("show");
+  popup.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
 }
 
-function closeCertificateViewer(){
-  const viewer = document.getElementById("certificateViewer");
-  const image = document.getElementById("certificateViewerImage");
+function closeCertificate(){
+  const popup = document.getElementById("certificatePopup");
+  const image = document.getElementById("popupCertificateImage");
 
-  if (!viewer) return;
+  if(!popup) return;
 
-  viewer.classList.remove("active");
-  viewer.setAttribute("aria-hidden", "true");
-  if (image) image.src = "";
+  popup.classList.remove("show");
+  popup.setAttribute("aria-hidden", "true");
+
+  if(image) image.src = "";
+
   document.body.style.overflow = "";
 }
 
-const certificateViewer = document.getElementById("certificateViewer");
-if (certificateViewer) {
-  certificateViewer.addEventListener("click", function(event){
-    if (event.target === certificateViewer) {
-      closeCertificateViewer();
-    }
-  });
-}
+document.getElementById("certificatePopup")?.addEventListener("click", function(event){
+  if(event.target === this){
+    closeCertificate();
+  }
+});
 
 document.addEventListener("keydown", function(event){
-  if (event.key === "Escape") {
-    closeCertificateViewer();
+  if(event.key === "Escape"){
+    closeCertificate();
+  }
+});
+
+document.getElementById("certificatePopup").addEventListener("click", function(event){
+  if(event.target === this){
+    closeCertificate();
+  }
+});
+
+document.addEventListener("keydown", function(event){
+  if(event.key === "Escape"){
+    closeCertificate();
   }
 });
 </script>
+
 
 </body>
 </html>
