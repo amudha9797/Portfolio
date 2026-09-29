@@ -1001,6 +1001,30 @@ footer span{
   }
 }
 
+
+/* Resume actions */
+.resume-actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:20px;
+}
+.resume-btn {
+  display:inline-block;
+  padding:12px 20px;
+  border:1px solid var(--gold);
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  transition:.2s ease;
+}
+.resume-btn:hover {
+  transform:translateY(-2px);
+}
+.resume-note {
+  margin-top:12px;
+  opacity:.8;
+}
 </style>
 </head>
 
@@ -1160,7 +1184,33 @@ footer span{
         class="btn btn-ghost"
         href="#contact"
       >
-        Get in touch
+        Let’s Connect →
+      </a>
+
+      <a
+        class="btn btn-ghost"
+        href="Amudha_S_Resume.pdf"
+        target="_blank"
+        rel="noopener"
+      >
+        👁️ View Resume
+      </a>
+
+      <a
+        class="btn btn-ghost"
+        href="Amudha_S_Resume.pdf"
+        download="Amudha_S_Resume.pdf"
+      >
+        ⬇️ Download Resume
+      </a>
+
+      <a
+        class="btn btn-ghost"
+        href="https://github.com/amudha9797"
+        target="_blank"
+        rel="noopener"
+      >
+        GitHub Profile →
       </a>
 
     </div>
@@ -2324,6 +2374,42 @@ footer span{
 
 
 <!-- =========================
+     RESUME
+========================= -->
+
+<section class="contact" id="resume">
+  <div class="wrap">
+    <div class="sec-tag" style="color:var(--gold);">
+      // resume
+    </div>
+
+    <h2>View Resume</h2>
+
+    <p class="lede">
+      View or download my latest resume for education, technical skills,
+      internships, projects, certifications, and career profile.
+    </p>
+
+    <div class="resume-actions">
+      <a href="Amudha_S_Resume.pdf" target="_blank" rel="noopener" class="resume-btn">
+        👁️ View Resume
+      </a>
+      <a href="Amudha_S_Resume.pdf" download="Amudha_S_Resume.pdf" class="resume-btn">
+        ⬇️ Download Resume
+      </a>
+      <a href="https://github.com/amudha9797" target="_blank" rel="noopener" class="resume-btn">
+        GitHub Profile →
+      </a>
+    </div>
+
+    <p class="resume-note">
+      Also available on my GitHub profile and LinkedIn.
+    </p>
+  </div>
+</section>
+
+
+<!-- =========================
      CONTACT
 ========================= -->
 
@@ -2428,6 +2514,20 @@ footer span{
       >
 
         Portfolio
+
+      </a>
+
+
+      <!-- GITHUB PROFILE -->
+
+      <a
+        class="clink"
+        href="https://github.com/amudha9797"
+        target="_blank"
+        rel="noopener"
+      >
+
+        GitHub Profile →
 
       </a>
 
