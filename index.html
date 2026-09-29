@@ -328,6 +328,18 @@ h1.name{
   color:var(--gold);
 }
 
+.btn-resume{
+  border:1px solid var(--gold);
+  color:var(--paper-card);
+  background:rgba(201,162,39,0.10);
+}
+
+.btn-resume:hover{
+  background:var(--gold);
+  color:var(--pcb-deep);
+  transform:translateY(-1px);
+}
+
 .traces{
   position:absolute;
 
@@ -988,6 +1000,62 @@ footer span{
   }
 }
 
+
+/* =========================
+   RESUME
+========================= */
+
+.resume-card{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  padding:24px;
+  background:var(--paper-card);
+  border:1px solid var(--line);
+  border-left:4px solid var(--copper);
+}
+
+.resume-title{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:1rem;
+  font-weight:600;
+  margin-bottom:5px;
+}
+
+.resume-text{
+  color:var(--ink-soft);
+  font-size:0.92rem;
+}
+
+.resume-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+.resume-download{
+  border-color:var(--pcb);
+  color:var(--pcb);
+}
+
+.resume-download:hover{
+  background:var(--pcb);
+  color:var(--paper-card);
+}
+
+@media (max-width:700px){
+  .resume-card{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .resume-actions{
+    justify-content:flex-start;
+  }
+}
+
 </style>
 </head>
 
@@ -1025,6 +1093,8 @@ footer span{
       <a href="#projects">Projects</a>
 
       <a href="#certs">Certifications</a>
+
+      <a href="#resume">Resume</a>
 
       <a href="#contact">Contact</a>
 
@@ -1148,6 +1218,25 @@ footer span{
         href="#contact"
       >
         Get in touch
+      </a>
+
+
+      <a
+        class="btn btn-resume"
+        href="Amudha_S_Resume.pdf"
+        target="_blank"
+        rel="noopener"
+      >
+        👁 View Resume
+      </a>
+
+
+      <a
+        class="btn btn-resume"
+        href="Amudha_S_Resume.pdf"
+        download="Amudha_S_Resume.pdf"
+      >
+        ↓ Download Resume
       </a>
 
     </div>
@@ -1922,6 +2011,54 @@ footer span{
 
 </section>
 
+
+
+<!-- =========================
+     RESUME
+========================= -->
+
+<section class="resume-section" id="resume">
+
+  <div class="wrap">
+
+    <div class="sec-head">
+
+      <div class="sec-tag">
+        // 07 — resume
+      </div>
+
+      <h2>
+        My Resume
+      </h2>
+
+      <p class="lede">
+        View my latest resume online or download a copy for internship and entry-level opportunities.
+      </p>
+
+    </div>
+
+    <div class="resume-card">
+
+      <div>
+        <div class="resume-title">Amudha S — ECE Student</div>
+        <div class="resume-text">Embedded Systems · VLSI · IoT · Electronics</div>
+      </div>
+
+      <div class="resume-actions">
+        <a class="btn btn-primary" href="Amudha_S_Resume.pdf" target="_blank" rel="noopener">
+          👁 View Resume
+        </a>
+
+        <a class="btn btn-ghost resume-download" href="Amudha_S_Resume.pdf" download="Amudha_S_Resume.pdf">
+          ↓ Download Resume
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
 
 <!-- =========================
